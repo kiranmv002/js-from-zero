@@ -28,4 +28,27 @@ function add(a, b) {
 console.log(add(5, 10))    // 15
 console.log(add(20, 30))   // 50
 
+// ----------------------------
+// Default Parameters
+// if no value is passed, it uses the default
+// ----------------------------
 
+function greetUser(name = "stranger") {
+    return `hey ${name}!`
+}
+
+console.log(greetUser("Kiran"))   // hey Kiran!
+console.log(greetUser())          // hey stranger!
+
+
+// ----------------------------
+// Function Expression
+// storing a function inside a variable
+// cannot be called before it is defined
+// ----------------------------
+
+const multiply = function(a, b) {
+    return a * b
+}
+
+console.log(multiply(4, 5))   // 20
