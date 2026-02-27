@@ -22,6 +22,7 @@ file → 01-basics/functions.js
 learned different ways to write functions in javascript.
 function declarations can be called before they are defined because of hoisting.
 function expressions store a function inside a variable.
+arrow functions are the modern and cleaner way to write functions.
 
 
 ---
