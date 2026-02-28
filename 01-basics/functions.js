@@ -52,3 +52,35 @@ const multiply = function(a, b) {
 }
 
 console.log(multiply(4, 5))   // 20
+
+// ----------------------------
+// Arrow Functions
+// shorter and cleaner way to write functions
+// mostly used in modern javascript
+// ----------------------------
+
+// regular function
+function square(n) {
+    return n * n
+}
+
+// same function as arrow function
+const squareArrow = (n) => {
+    return n * n
+}
+
+// even shorter - when there is only one line you can remove braces and return
+const squareShort = n => n * n
+
+console.log(square(4))        // 16
+console.log(squareArrow(4))   // 16
+console.log(squareShort(4))   // 16
+
+
+// ----------------------------
+// Arrow function with multiple params
+// ----------------------------
+
+const addTwo = (a, b) => a + b
+
+console.log(addTwo(10, 20))   // 30
