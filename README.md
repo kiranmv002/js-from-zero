@@ -23,6 +23,8 @@ file → 01-basics/functions.js
 - function declarations can be called before they are defined because of hoisting.
 - function expressions store a function inside a variable.
 - arrow functions are the modern and cleaner way to write functions.
+- default parameters are useful when you want a fallback value if nothing is passed.
+- higher order functions take other functions as arguments which is used a lot in js.
 
 
 ---
