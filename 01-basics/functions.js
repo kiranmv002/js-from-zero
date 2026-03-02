@@ -28,6 +28,7 @@ function add(a, b) {
 console.log(add(5, 10))    // 15
 console.log(add(20, 30))   // 50
 
+
 // ----------------------------
 // Default Parameters
 // if no value is passed, it uses the default
@@ -52,6 +53,7 @@ const multiply = function(a, b) {
 }
 
 console.log(multiply(4, 5))   // 20
+
 
 // ----------------------------
 // Arrow Functions
@@ -84,3 +86,51 @@ console.log(squareShort(4))   // 16
 const addTwo = (a, b) => a + b
 
 console.log(addTwo(10, 20))   // 30
+
+
+// ----------------------------
+// Function inside a function
+// ----------------------------
+
+function calculateTotal(price, discount) {
+    const getDiscount = (p, d) => p * (d / 100)
+    const discountAmount = getDiscount(price, discount)
+    return price - discountAmount
+}
+
+console.log(calculateTotal(1000, 10))   // 900
+console.log(calculateTotal(500, 20))    // 400
+
+
+// ----------------------------
+// Returning multiple values using object
+// ----------------------------
+
+function getStudentInfo(name, marks) {
+    const percentage = (marks / 500) * 100
+    const grade = percentage >= 60 ? "pass" : "fail"
+    return { name, percentage, grade }
+}
+
+const result = getStudentInfo("Kiran", 380)
+console.log(result)
+// { name: 'Kiran', percentage: 76, grade: 'pass' }
+
+
+// ----------------------------
+// Higher order functions
+// functions that take other functions as arguments
+// this is used a lot in javascript
+// ----------------------------
+
+function doMath(a, b, operation) {
+    return operation(a, b)
+}
+
+const sum = (a, b) => a + b
+const difference = (a, b) => a - b
+const product = (a, b) => a * b
+
+console.log(doMath(10, 5, sum))         // 15
+console.log(doMath(10, 5, difference))  // 5
+console.log(doMath(10, 5, product))     // 50
