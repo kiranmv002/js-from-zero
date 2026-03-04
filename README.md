@@ -26,7 +26,19 @@ file → 01-basics/functions.js
 - default parameters are useful when you want a fallback value if nothing is passed.
 - higher order functions take other functions as arguments which is used a lot in js.
 
+### ✅ day 3 — loops
+file → `01-basics/loops.js`
 
+- for loop — when you know how many times to repeat
+- while loop — when condition decides how many times
+- do while loop — runs at least once
+- for of loop — loop over arrays
+- for in loop — loop over object keys
+- break — stops loop early
+- continue — skips current iteration
+- forEach — cleaner way to loop arrays
+- practical examples — sum of array, find even numbers
+- 
 ---
 
 ## 📊 progress
@@ -35,7 +47,8 @@ file → 01-basics/functions.js
 |-------|-----------------------------------|----------|
 | day 1 | variables and data types          | ✅ done | 
 | day 2 | functions                         | ✅ done |
+| day 3 | loops                              ✅ done  |
 
 ---
 
-day 2 done. starting small but staying consistent 💪
+day 3 done. loops make so much sense now 💪
