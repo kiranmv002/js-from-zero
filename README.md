@@ -38,7 +38,14 @@ file → `01-basics/loops.js`
 - continue — skips current iteration
 - forEach — cleaner way to loop arrays
 - practical examples — sum of array, find even numbers
-- 
+
+
+### ✅ day 4 — conditionals
+file → `01-basics/conditionals.js`
+
+- if, if else, if else if else
+
+
 ---
 
 ## 📊 progress
@@ -47,7 +54,7 @@ file → `01-basics/loops.js`
 |-------|-----------------------------------|----------|
 | day 1 | variables and data types          | ✅ done | 
 | day 2 | functions                         | ✅ done |
-| day 3 | loops                              ✅ done  |
+| day 3 | loops                             | ✅ done  |
 
 ---
 
