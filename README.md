@@ -44,7 +44,10 @@ file → `01-basics/loops.js`
 file → `01-basics/conditionals.js`
 
 - if, if else, if else if else
-
+- nested if statements
+- switch statement with break and default
+- ternary operator — short if else in one line
+- logical operators — && || !
 
 ---
 
