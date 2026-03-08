@@ -65,4 +65,4 @@ file → `01-basics/conditionals.js`
 
 ---
 
-day 3 done. loops make so much sense now 💪
+day 4 done. conditionals are the building blocks of logic 💪
