@@ -34,6 +34,7 @@ if (score >= 90) {
     console.log("grade: F")
 }
 
+
 // nested if
 // if inside another if
 let num = 15
@@ -97,3 +98,60 @@ if (isLoggedIn && isAdmin) {
 } else {
     console.log("please login")
 }
+
+
+// nullish coalescing ??
+// returns right side if left side is null or undefined
+let username = null
+let displayName = username ?? "Guest"
+console.log(displayName)   // Guest
+
+let name = "Kiran"
+let display = name ?? "Guest"
+console.log(display)   // Kiran
+
+
+// optional chaining ?.
+// safely access nested properties without error
+let user = {
+    name: "Kiran",
+    address: {
+        city: "Hyderabad"
+    }
+}
+
+console.log(user?.address?.city)      // Hyderabad
+console.log(user?.phone?.number)      // undefined (no error)
+
+
+// practical example - grade calculator
+function getGrade(marks) {
+    if (marks >= 90) return "A+"
+    else if (marks >= 80) return "A"
+    else if (marks >= 70) return "B"
+    else if (marks >= 60) return "C"
+    else if (marks >= 50) return "D"
+    else return "F"
+}
+
+console.log(getGrade(95))   // A+
+console.log(getGrade(72))   // B
+console.log(getGrade(40))   // F
+
+
+// practical example - login check
+function checkLogin(username, password) {
+    if (!username || !password) {
+        return "please enter username and password"
+    }
+
+    if (username === "kiran" && password === "1234") {
+        return "login successful"
+    } else {
+        return "wrong username or password"
+    }
+}
+
+console.log(checkLogin("kiran", "1234"))    // login successful
+console.log(checkLogin("kiran", "wrong"))   // wrong username or password
+console.log(checkLogin("", "1234"))         // please enter username and password
