@@ -48,6 +48,9 @@ file → `01-basics/conditionals.js`
 - switch statement with break and default
 - ternary operator — short if else in one line
 - logical operators — && || !
+- nullish coalescing ?? operator
+- optional chaining ?. operator
+- practical examples — grade calculator, login check
 
 ---
 
@@ -57,7 +60,8 @@ file → `01-basics/conditionals.js`
 |-------|-----------------------------------|----------|
 | day 1 | variables and data types          | ✅ done | 
 | day 2 | functions                         | ✅ done |
-| day 3 | loops                             | ✅ done  |
+| day 3 | loops                             | ✅ done |
+| day 4 | conditionals                      | ✅ done |
 
 ---
 
