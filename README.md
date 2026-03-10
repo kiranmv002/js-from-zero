@@ -73,4 +73,4 @@ file → `01-basics/arrays-basics.js`
 
 ---
 
-day 4 done. conditionals are the building blocks of logic 💪
+day 5 done. arrays are everywhere in javascript 💪
