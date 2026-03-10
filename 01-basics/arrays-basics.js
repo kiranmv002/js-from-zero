@@ -28,3 +28,23 @@ console.log(fruits)   // apple grapes banana orange
 // array with mixed types
 const mixed = ["kiran", 19, true, null]
 console.log(mixed)
+
+// --- adding and removing elements ---
+
+const nums = [1, 2, 3, 4, 5]
+
+// push - add to end
+nums.push(6)
+console.log(nums)   // [1,2,3,4,5,6]
+
+// pop - remove from end
+nums.pop()
+console.log(nums)   // [1,2,3,4,5]
+
+// unshift - add to beginning
+nums.unshift(0)
+console.log(nums)   // [0,1,2,3,4,5]
+
+// shift - remove from beginning
+nums.shift()
+console.log(nums)   // [1,2,3,4,5]
