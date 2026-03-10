@@ -52,6 +52,13 @@ file → `01-basics/conditionals.js`
 - optional chaining ?. operator
 - practical examples — grade calculator, login check
 
+
+### ✅ day 5 — arrays basics
+file → `01-basics/arrays-basics.js`
+
+- creating arrays and accessing elements by index
+- array length and last element
+
 ---
 
 ## 📊 progress
@@ -62,6 +69,7 @@ file → `01-basics/conditionals.js`
 | day 2 | functions                         | ✅ done |
 | day 3 | loops                             | ✅ done |
 | day 4 | conditionals                      | ✅ done |
+| day 5 | arrays basics                     | ✅ done |
 
 ---
 
