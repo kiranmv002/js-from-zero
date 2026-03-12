@@ -29,6 +29,7 @@ console.log(fruits)   // apple grapes banana orange
 const mixed = ["kiran", 19, true, null]
 console.log(mixed)
 
+
 // --- adding and removing elements ---
 
 const nums = [1, 2, 3, 4, 5]
@@ -49,6 +50,7 @@ console.log(nums)   // [0,1,2,3,4,5]
 nums.shift()
 console.log(nums)   // [1,2,3,4,5]
 
+
 // --- searching ---
 
 const colors = ["red", "green", "blue", "green"]
@@ -62,3 +64,55 @@ console.log(colors.lastIndexOf("green"))   // 3
 // includes - returns true or false
 console.log(colors.includes("blue"))    // true
 console.log(colors.includes("yellow"))  // false
+
+
+// --- slicing and splicing ---
+
+const letters = ["a", "b", "c", "d", "e"]
+
+// slice - returns part of array without changing original
+const sliced = letters.slice(1, 4)
+console.log(sliced)    // [b, c, d]
+console.log(letters)   // original unchanged
+
+// splice - removes or replaces elements in original array
+const removed = letters.splice(1, 2)
+console.log(removed)   // [b, c]
+console.log(letters)   // [a, d, e]
+
+
+// --- combining arrays ---
+
+const arr1 = [1, 2, 3]
+const arr2 = [4, 5, 6]
+
+// concat
+const combined = arr1.concat(arr2)
+console.log(combined)   // [1,2,3,4,5,6]
+
+// spread operator - modern way
+const merged = [...arr1, ...arr2]
+console.log(merged)   // [1,2,3,4,5,6]
+
+
+// --- useful array methods ---
+
+const numbers = [3, 1, 4, 1, 5, 9, 2, 6]
+
+// sort - sorts alphabetically by default
+const sorted = [...numbers].sort((a, b) => a - b)
+console.log(sorted)   // [1,1,2,3,4,5,6,9]
+
+// reverse
+const reversed = [...numbers].reverse()
+console.log(reversed)
+
+// join - array to string
+const words = ["hello", "world"]
+console.log(words.join(" "))   // hello world
+console.log(words.join("-"))   // hello-world
+
+// flat - flatten nested arrays
+const nested = [1, [2, 3], [4, [5, 6]]]
+console.log(nested.flat())     // [1,2,3,4,[5,6]]
+console.log(nested.flat(2))    // [1,2,3,4,5,6]
