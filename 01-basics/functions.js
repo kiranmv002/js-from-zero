@@ -14,7 +14,7 @@ function greet(name) {
 }
 
 console.log(greet("Kiran"))   // hey Kiran, welcome!
-console.log(greet("Ravi"))    // hey Ravi, welcome!
+console.log(greet("Shiva"))    // hey Shiva, welcome!
 
 
 // ----------------------------
