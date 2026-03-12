@@ -116,3 +116,39 @@ console.log(words.join("-"))   // hello-world
 const nested = [1, [2, 3], [4, [5, 6]]]
 console.log(nested.flat())     // [1,2,3,4,[5,6]]
 console.log(nested.flat(2))    // [1,2,3,4,5,6]
+
+
+// --- looping over arrays ---
+
+const students = ["Kiran", "Ravi", "Arjun"]
+
+// forEach
+students.forEach((student, index) => {
+    console.log(index + 1, student)
+})
+
+// for of
+for (let student of students) {
+    console.log(student)
+}
+
+
+// --- practical examples ---
+
+// find sum of all numbers
+const scores = [85, 90, 78, 92, 88]
+let total = 0
+scores.forEach(score => total += score)
+console.log("total:", total)           // 433
+console.log("average:", total / scores.length)  // 86.6
+
+// find max and min
+const max = Math.max(...scores)
+const min = Math.min(...scores)
+console.log("max:", max)   // 92
+console.log("min:", min)   // 78
+
+// remove duplicates using Set
+const withDups = [1, 2, 2, 3, 3, 3, 4]
+const unique = [...new Set(withDups)]
+console.log(unique)   // [1,2,3,4]
