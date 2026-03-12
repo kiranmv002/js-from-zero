@@ -61,7 +61,10 @@ file → `01-basics/arrays-basics.js`
 - push, pop, unshift, shift — add and remove
 - indexOf, lastIndexOf, includes — searching
 - slice and splice — getting parts of array
-
+- concat and spread operator — combining arrays
+- sort, reverse, join, flat — useful methods
+- forEach and for of — looping arrays
+- practical examples — sum, average, max, min, remove duplicates
 
 ---
 
