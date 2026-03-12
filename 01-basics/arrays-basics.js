@@ -9,7 +9,7 @@ console.log(fruits)
 // index starts from 0
 console.log(fruits[0])   // apple
 console.log(fruits[1])   // mango
-console.log(fruits[3])   // orange
+console.log(fruits[2])   // banana
 
 
 // length of array
