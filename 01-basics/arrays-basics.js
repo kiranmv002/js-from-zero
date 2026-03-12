@@ -48,3 +48,17 @@ console.log(nums)   // [0,1,2,3,4,5]
 // shift - remove from beginning
 nums.shift()
 console.log(nums)   // [1,2,3,4,5]
+
+// --- searching ---
+
+const colors = ["red", "green", "blue", "green"]
+
+// indexOf - returns first index of element
+console.log(colors.indexOf("green"))    // 1
+
+// lastIndexOf - returns last index
+console.log(colors.lastIndexOf("green"))   // 3
+
+// includes - returns true or false
+console.log(colors.includes("blue"))    // true
+console.log(colors.includes("yellow"))  // false
