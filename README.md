@@ -58,6 +58,10 @@ file → `01-basics/arrays-basics.js`
 
 - creating arrays and accessing elements by index
 - array length and last element
+- push, pop, unshift, shift — add and remove
+- indexOf, lastIndexOf, includes — searching
+- slice and splice — getting parts of array
+
 
 ---
 
