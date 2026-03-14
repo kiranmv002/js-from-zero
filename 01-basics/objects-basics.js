@@ -112,3 +112,30 @@ const original = { name: "Kiran", age: 19 }
 
 // spread operator - creates a new copy
 const copy = { ...original }
+copy.name = "Ravi"
+
+console.log(original.name)   // Kiran (unchanged)
+console.log(copy.name)       // Ravi
+
+// Object.assign
+const copy2 = Object.assign({}, original)
+console.log(copy2)
+
+
+// --- merging objects ---
+
+const personal = { name: "Kiran", age: 19 }
+const academic = { college: "JNTU", year: 2 }
+
+const merged = { ...personal, ...academic }
+console.log(merged)
+// { name: Kiran, age: 19, college: JNTU, year: 2 }
+
+
+// --- destructuring ---
+
+const user = {
+    username: "kiranmv002",
+    email: "kiran@gmail.com",
+    role: "student"
+}
