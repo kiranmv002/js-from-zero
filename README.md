@@ -66,6 +66,15 @@ file → `01-basics/arrays-basics.js`
 - forEach and for of — looping arrays
 - practical examples — sum, average, max, min, remove duplicates
 
+### ✅ day 6 — objects basics
+file → `01-basics/objects-basics.js`
+
+- creating objects and accessing with dot and bracket notation
+- adding, updating, deleting properties
+- Object.keys, Object.values, Object.entries
+- methods inside objects using this keyword
+
+
 ---
 
 ## 📊 progress
