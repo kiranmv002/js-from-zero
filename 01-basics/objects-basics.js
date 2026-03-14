@@ -86,3 +86,29 @@ const profile = {
 console.log(profile.address.city)      // Hyderabad
 console.log(profile.skills[0])         // HTML
 console.log(profile.address.pincode)   // 500001
+// --- looping over objects ---
+
+const marks = {
+    maths: 90,
+    physics: 85,
+    chemistry: 88,
+    english: 92
+}
+
+// for in loop
+for (let subject in marks) {
+    console.log(subject, ":", marks[subject])
+}
+
+// using Object.entries with forEach
+Object.entries(marks).forEach(([subject, mark]) => {
+    console.log(`${subject} → ${mark}`)
+})
+
+
+// --- copying objects ---
+
+const original = { name: "Kiran", age: 19 }
+
+// spread operator - creates a new copy
+const copy = { ...original }
