@@ -86,6 +86,7 @@ file → `01-basics/objects-basics.js`
 | day 3 | loops                             | ✅ done |
 | day 4 | conditionals                      | ✅ done |
 | day 5 | arrays basics                     | ✅ done |
+| day 6 | objects basics                    | ✅ done |
 
 ---
 
