@@ -54,3 +54,35 @@ console.log(values)   // [Kiran, 20, Hyderabad, JNTU]
 // Object.entries - get key value pairs
 const entries = Object.entries(student)
 console.log(entries)
+// --- methods inside objects ---
+
+const person = {
+    name: "Kiran",
+    age: 19,
+    greet() {
+        return `hey i am ${this.name} and i am ${this.age} years old`
+    },
+    isAdult() {
+        return this.age >= 18 ? "adult" : "minor"
+    }
+}
+
+console.log(person.greet())     // hey i am Kiran and i am 19 years old
+console.log(person.isAdult())   // adult
+
+
+// --- nested objects ---
+
+const profile = {
+    name: "Kiran",
+    address: {
+        city: "Hyderabad",
+        state: "Telangana",
+        pincode: 500001
+    },
+    skills: ["HTML", "CSS", "JavaScript"]
+}
+
+console.log(profile.address.city)      // Hyderabad
+console.log(profile.skills[0])         // HTML
+console.log(profile.address.pincode)   // 500001
