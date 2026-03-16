@@ -139,3 +139,17 @@ const user = {
     email: "kiran@gmail.com",
     role: "student"
 }
+
+// pull out values into variables
+const { username, email, role } = user
+console.log(username)   // kiranmv002
+console.log(email)      // kiran@gmail.com
+
+// rename while destructuring
+const { username: uname, role: userRole } = user
+console.log(uname)      // kiranmv002
+console.log(userRole)   // student
+
+// default values
+const { phone = "not provided" } = user
+console.log(phone)   // not provided
