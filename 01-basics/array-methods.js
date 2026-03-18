@@ -43,3 +43,24 @@ console.log(bigNumbers)   // [6,7,8,9,10]
 // filter with objects
 const topStudents = students.filter(s => s.marks >= 85)
 console.log(topStudents)   // Kiran and Arjun
+// --- reduce ---
+// reduces the whole array to a single value
+
+const sum = numbers.reduce((total, n) => total + n, 0)
+console.log(sum)   // 55
+
+const product = numbers.reduce((total, n) => total * n, 1)
+console.log(product)   // 3628800
+
+// reduce to find max
+const max = numbers.reduce((a, b) => a > b ? a : b)
+console.log(max)   // 10
+
+// reduce to count occurrences
+const fruits = ["apple", "mango", "apple", "banana", "mango", "apple"]
+const count = fruits.reduce((acc, fruit) => {
+    acc[fruit] = (acc[fruit] || 0) + 1
+    return acc
+}, {})
+console.log(count)   // { apple: 3, mango: 2, banana: 1 }
+
