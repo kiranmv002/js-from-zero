@@ -95,3 +95,51 @@ console.log(hasEven)   // true
 
 const hasNegative = numbers.some(n => n < 0)
 console.log(hasNegative)   // false
+// --- every ---
+// returns true only if all elements pass condition
+
+const allPositive = numbers.every(n => n > 0)
+console.log(allPositive)   // true
+
+const allEven = numbers.every(n => n % 2 === 0)
+console.log(allEven)   // false
+
+
+// --- chaining methods ---
+// combine multiple methods together
+
+const result = numbers
+    .filter(n => n % 2 === 0)   // get evens: [2,4,6,8,10]
+    .map(n => n * n)             // square them: [4,16,36,64,100]
+    .reduce((a, b) => a + b, 0) // sum: 220
+
+console.log(result)   // 220
+
+
+// --- practical examples ---
+
+// get all student names who passed (marks >= 60)
+const passed = students
+    .filter(s => s.marks >= 60)
+    .map(s => s.name)
+console.log("passed:", passed)
+
+// get total marks of all students
+const totalMarks = students.reduce((total, s) => total + s.marks, 0)
+console.log("total marks:", totalMarks)
+
+// get average marks
+const avgMarks = totalMarks / students.length
+console.log("average:", avgMarks.toFixed(2))
+
+// find if anyone scored 100
+const perfectScore = students.some(s => s.marks === 100)
+console.log("anyone scored 100:", perfectScore)
+
+// check if all students passed
+const allPassed = students.every(s => s.marks >= 60)
+console.log("all passed:", allPassed)
+
+// sort students by marks high to low
+const sorted = [...students].sort((a, b) => b.marks - a.marks)
+console.log("sorted by marks:", sorted)
