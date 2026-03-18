@@ -28,6 +28,8 @@ const grades = students.map(s => ({
     grade: s.marks >= 90 ? "A" : s.marks >= 75 ? "B" : "C"
 }))
 console.log(grades)
+
+
 // --- filter ---
 // creates a new array with only elements that pass the condition
 
@@ -43,6 +45,8 @@ console.log(bigNumbers)   // [6,7,8,9,10]
 // filter with objects
 const topStudents = students.filter(s => s.marks >= 85)
 console.log(topStudents)   // Kiran and Arjun
+
+
 // --- reduce ---
 // reduces the whole array to a single value
 
@@ -63,6 +67,7 @@ const count = fruits.reduce((acc, fruit) => {
     return acc
 }, {})
 console.log(count)   // { apple: 3, mango: 2, banana: 1 }
+
 
 // --- find ---
 // returns the first element that passes the condition
@@ -95,6 +100,8 @@ console.log(hasEven)   // true
 
 const hasNegative = numbers.some(n => n < 0)
 console.log(hasNegative)   // false
+
+
 // --- every ---
 // returns true only if all elements pass condition
 
