@@ -28,3 +28,18 @@ const grades = students.map(s => ({
     grade: s.marks >= 90 ? "A" : s.marks >= 75 ? "B" : "C"
 }))
 console.log(grades)
+// --- filter ---
+// creates a new array with only elements that pass the condition
+
+const evens = numbers.filter(n => n % 2 === 0)
+console.log(evens)   // [2,4,6,8,10]
+
+const odds = numbers.filter(n => n % 2 !== 0)
+console.log(odds)   // [1,3,5,7,9]
+
+const bigNumbers = numbers.filter(n => n > 5)
+console.log(bigNumbers)   // [6,7,8,9,10]
+
+// filter with objects
+const topStudents = students.filter(s => s.marks >= 85)
+console.log(topStudents)   // Kiran and Arjun
