@@ -64,3 +64,34 @@ const count = fruits.reduce((acc, fruit) => {
 }, {})
 console.log(count)   // { apple: 3, mango: 2, banana: 1 }
 
+// --- find ---
+// returns the first element that passes the condition
+
+const firstEven = numbers.find(n => n % 2 === 0)
+console.log(firstEven)   // 2
+
+const found = students.find(s => s.name === "Ravi")
+console.log(found)   // { name: Ravi, marks: 75 }
+
+const notFound = students.find(s => s.name === "Priya")
+console.log(notFound)   // undefined
+
+
+// --- findIndex ---
+// returns the index of first element that passes condition
+
+const firstEvenIndex = numbers.findIndex(n => n % 2 === 0)
+console.log(firstEvenIndex)   // 1
+
+const raviIndex = students.findIndex(s => s.name === "Ravi")
+console.log(raviIndex)   // 1
+
+
+// --- some ---
+// returns true if at least one element passes condition
+
+const hasEven = numbers.some(n => n % 2 === 0)
+console.log(hasEven)   // true
+
+const hasNegative = numbers.some(n => n < 0)
+console.log(hasNegative)   // false
