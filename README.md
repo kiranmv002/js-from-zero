@@ -99,7 +99,7 @@ file → `01-basics/array-methods.js`
 | day 4 | conditionals                      | ✅ done |
 | day 5 | arrays basics                     | ✅ done |
 | day 6 | objects basics                    | ✅ done |
-
+| day 7 | array methods                     | ✅ done |
 ---
 
 day 7 done. map filter reduce are the most used methods in javascript 💪
