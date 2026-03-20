@@ -97,4 +97,4 @@ file → `01-basics/array-methods.js`
 
 ---
 
-day 5 done. arrays are everywhere in javascript 💪
+day 7 done. map filter reduce are the most used methods in javascript 💪
