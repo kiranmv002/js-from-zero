@@ -82,6 +82,11 @@ file → `01-basics/array-methods.js`
 - reduce — reduce whole array to single value
 - find — get first element matching condition
 - findIndex — get index of first match
+- some — true if at least one passes
+- every — true only if all pass
+- chaining — combine methods together
+- practical examples — student marks calculator
+
 ---
 
 ## 📊 progress
