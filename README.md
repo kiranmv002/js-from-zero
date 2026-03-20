@@ -74,7 +74,14 @@ file → `01-basics/objects-basics.js`
 - Object.keys, Object.values, Object.entries
 - methods inside objects using this keyword
 
+### ✅ day 7 — array methods
+file → `01-basics/array-methods.js`
 
+- map — transform every element into something new
+- filter — keep only elements that pass condition
+- reduce — reduce whole array to single value
+- find — get first element matching condition
+- findIndex — get index of first match
 ---
 
 ## 📊 progress
