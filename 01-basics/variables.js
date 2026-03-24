@@ -19,7 +19,7 @@ score = 25   // can change again
 // const is for values that never change
 const myName = "Kiran"
 const myCollege = "JNTU"
-const currentYear = 2024
+const currentYear = 2025
 // myName = "Kumar"  // this will throw error, const cant be changed
 
 
