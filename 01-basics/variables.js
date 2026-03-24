@@ -30,7 +30,7 @@ const currentYear = 2024
 let age = 20           // number - whole number
 let gpa = 8.5          // number - decimal also same type in js
 let isPlaced = false   // boolean - true or false only
-let city = "Hyderabad" // string - any text inside quotes
+let city = "AndhraPradesh" // string - any text inside quotes
 let nothing = null     // null - intentionally empty
 let notDefined         // undefined - no value given yet
 
