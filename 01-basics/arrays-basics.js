@@ -21,8 +21,8 @@ console.log(fruits[fruits.length - 1])   // orange
 
 
 // changing an element
-fruits[1] = "grapes"
-console.log(fruits)   // apple grapes banana orange
+fruits[2] = "grapes"
+console.log(fruits)   // apple mango grapes orange
 
 
 // array with mixed types
