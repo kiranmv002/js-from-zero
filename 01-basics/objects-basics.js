@@ -136,14 +136,14 @@ console.log(merged)
 
 const user = {
     username: "kiranmv002",
-    email: "kiran@gmail.com",
+    email: "kiran1@gmail.com",
     role: "student"
 }
 
 // pull out values into variables
 const { username, email, role } = user
 console.log(username)   // kiranmv002
-console.log(email)      // kiran@gmail.com
+console.log(email)      // kiran1@gmail.com
 
 // rename while destructuring
 const { username: uname, role: userRole } = user
