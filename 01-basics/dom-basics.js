@@ -25,3 +25,18 @@ const items = document.getElementsByClassName('item')
 
 // getElementsByTagName
 const allH2 = document.getElementsByTagName('h2')
+
+// --- reading and changing content ---
+
+// textContent - get or set text
+const para = document.querySelector('#para')
+console.log(para.textContent)          // reads text
+para.textContent = 'updated text'      // sets text
+
+// innerHTML - get or set html
+const box = document.querySelector('#box')
+box.innerHTML = '<strong>bold text</strong>'
+
+// innerText - only visible text
+console.log(para.innerText)
+
