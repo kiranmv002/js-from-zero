@@ -40,3 +40,12 @@ box.innerHTML = '<strong>bold text</strong>'
 // innerText - only visible text
 console.log(para.innerText)
 
+// --- changing styles ---
+
+const card = document.querySelector('.card')
+
+// directly change style
+card.style.backgroundColor = '#00c9a7'
+card.style.color = '#0b0f19'
+card.style.padding = '20px'
+card.style.borderRadius = '8px'
