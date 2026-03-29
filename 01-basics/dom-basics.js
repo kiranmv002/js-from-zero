@@ -49,3 +49,17 @@ card.style.backgroundColor = '#00c9a7'
 card.style.color = '#0b0f19'
 card.style.padding = '20px'
 card.style.borderRadius = '8px'
+newDiv.style.marginTop = '10px'
+
+// add to page
+const container = document.querySelector('#container')
+container.appendChild(newDiv)     // add at end
+container.prepend(newDiv)         // add at beginning
+
+// insert before a specific element
+const ref = document.querySelector('#ref')
+container.insertBefore(newDiv, ref)
+
+// insertAdjacentHTML - add html string relative to element
+container.insertAdjacentHTML('beforeend', '<p>added with insertAdjacentHTML</p>')
+
