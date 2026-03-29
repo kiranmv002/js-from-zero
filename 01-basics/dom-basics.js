@@ -62,4 +62,53 @@ container.insertBefore(newDiv, ref)
 
 // insertAdjacentHTML - add html string relative to element
 container.insertAdjacentHTML('beforeend', '<p>added with insertAdjacentHTML</p>')
+// --- removing elements ---
+
+const oldDiv = document.querySelector('#old')
+oldDiv.remove()   // removes from page
+
+// remove a child
+const parent = document.querySelector('#parent')
+const child = document.querySelector('#child')
+parent.removeChild(child)
+
+
+// --- traversing the DOM ---
+// moving between related elements
+
+const list = document.querySelector('#list')
+
+// parent
+console.log(list.parentElement)
+
+// children
+console.log(list.children)
+console.log(list.firstElementChild)
+console.log(list.lastElementChild)
+
+// siblings
+const item = document.querySelector('.item')
+console.log(item.nextElementSibling)
+console.log(item.previousElementSibling)
+
+
+// --- practical example ---
+// change all paragraph colors on page
+
+const paragraphs = document.querySelectorAll('p')
+paragraphs.forEach((p, index) => {
+    p.style.color = index % 2 === 0 ? '#00c9a7' : '#9aaac4'
+})
+
+// add a class to every other list item
+const listItems = document.querySelectorAll('li')
+listItems.forEach((item, index) => {
+    if (index % 2 === 0) {
+        item.classList.add('even')
+    }
+})
+
+// count how many elements have a class
+const activeItems = document.querySelectorAll('.active')
+console.log('active items:', activeItems.length)
 
