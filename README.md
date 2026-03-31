@@ -117,4 +117,4 @@ files → `02-dom/dom-basics.js` `02-dom/index.html`
 | day 8 | dom basics                        | ✅ done |
 ---
 
-day 7 done. map filter reduce are the most used methods in javascript 💪
+day 8 done. dom manipulation is how javascript talks to html 💪
