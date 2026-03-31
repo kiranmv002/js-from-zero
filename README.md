@@ -114,6 +114,7 @@ files → `02-dom/dom-basics.js` `02-dom/index.html`
 | day 5 | arrays basics                     | ✅ done |
 | day 6 | objects basics                    | ✅ done |
 | day 7 | array methods                     | ✅ done |
+| day 8 | dom basics                        | ✅ done |
 ---
 
 day 7 done. map filter reduce are the most used methods in javascript 💪
