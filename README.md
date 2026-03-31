@@ -95,6 +95,11 @@ files → `02-dom/dom-basics.js` `02-dom/index.html`
 - changing styles directly with javascript
 - classList — add, remove, toggle, contains
 - reading and setting attributes
+- creating new elements with createElement
+- appendChild, prepend, insertBefore
+- removing elements with remove and removeChild
+- traversing DOM — parent, children, siblings
+- practical examples — change colors, add classes
 
 ---
 
