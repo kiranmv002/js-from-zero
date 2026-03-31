@@ -87,6 +87,15 @@ file → `01-basics/array-methods.js`
 - chaining — combine methods together
 - practical examples — student marks calculator
 
+### ✅ day 8 — dom basics
+files → `02-dom/dom-basics.js` `02-dom/index.html`
+
+- getElementById, querySelector, querySelectorAll
+- reading and changing textContent, innerHTML
+- changing styles directly with javascript
+- classList — add, remove, toggle, contains
+- reading and setting attributes
+
 ---
 
 ## 📊 progress
