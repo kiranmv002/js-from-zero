@@ -26,6 +26,7 @@ const items = document.getElementsByClassName('item')
 // getElementsByTagName
 const allH2 = document.getElementsByTagName('h2')
 
+
 // --- reading and changing content ---
 
 // textContent - get or set text
@@ -40,6 +41,7 @@ box.innerHTML = '<strong>bold text</strong>'
 // innerText - only visible text
 console.log(para.innerText)
 
+
 // --- changing styles ---
 
 const card = document.querySelector('.card')
@@ -49,6 +51,49 @@ card.style.backgroundColor = '#00c9a7'
 card.style.color = '#0b0f19'
 card.style.padding = '20px'
 card.style.borderRadius = '8px'
+
+
+// --- working with classes ---
+
+const element = document.querySelector('.box')
+
+// add a class
+element.classList.add('active')
+
+// remove a class
+element.classList.remove('hidden')
+
+// toggle - adds if not there, removes if already there
+element.classList.toggle('dark')
+
+// check if class exists
+console.log(element.classList.contains('active'))   // true
+
+
+// --- reading and changing attributes ---
+
+const link = document.querySelector('a')
+
+// read attribute
+console.log(link.getAttribute('href'))
+
+// set attribute
+link.setAttribute('href', 'https://github.com/kiranmv002')
+link.setAttribute('target', '_blank')
+
+// remove attribute
+link.removeAttribute('title')
+
+
+// --- creating new elements ---
+
+// create element
+const newDiv = document.createElement('div')
+newDiv.textContent = 'i was created with javascript'
+newDiv.classList.add('new-card')
+newDiv.style.padding = '16px'
+newDiv.style.background = '#00c9a7'
+newDiv.style.borderRadius = '8px'
 newDiv.style.marginTop = '10px'
 
 // add to page
@@ -62,6 +107,8 @@ container.insertBefore(newDiv, ref)
 
 // insertAdjacentHTML - add html string relative to element
 container.insertAdjacentHTML('beforeend', '<p>added with insertAdjacentHTML</p>')
+
+
 // --- removing elements ---
 
 const oldDiv = document.querySelector('#old')
@@ -111,4 +158,3 @@ listItems.forEach((item, index) => {
 // count how many elements have a class
 const activeItems = document.querySelectorAll('.active')
 console.log('active items:', activeItems.length)
-
