@@ -1,38 +1,49 @@
-// ============================================================
-// FILE: counting_sort.cpp
-// TIME:  O(n + k) where k = range of input
-// SPACE: O(k)
-// STABLE: YES
-// NOTE:  Only works for non-negative integers
-// ============================================================
-#include <iostream>
-#include <vector>
-using namespace std;
+// Day 9 - DOM Events in JavaScript
+// events are things that happen on the page
+// click, hover, type, scroll, resize etc
+// we can listen for these and run code when they happen
 
-void countingSort(int arr[], int n) {
-    int maxVal = *max_element(arr, arr + n);
-    vector<int> count(maxVal + 1, 0);
 
-    for (int i = 0; i < n; i++)
-        count[arr[i]]++;
+// --- addEventListener ---
+// the main way to listen for events
 
-    int idx = 0;
-    for (int i = 0; i <= maxVal; i++)
-        while (count[i]-- > 0)
-            arr[idx++] = i;
-}
+const btn = document.querySelector('#btn')
 
-void printArray(int arr[], int n) {
-    for (int i = 0; i < n; i++)
-        cout << arr[i] << " ";
-    cout << "\n";
-}
+btn.addEventListener('click', () => {
+    console.log('button was clicked!')
+})
 
-int main() {
-    int arr[] = {4, 2, 2, 8, 3, 3, 1};
-    int n = 7;
-    cout << "Before: "; printArray(arr, n);
-    countingSort(arr, n);
-    cout << "After:  "; printArray(arr, n);
-    return 0;
-}
+
+// --- common events ---
+
+// click
+btn.addEventListener('click', (e) => {
+    console.log('clicked!', e)
+})
+
+// double click
+btn.addEventListener('dblclick', () => {
+    console.log('double clicked!')
+})
+
+// mouse over and mouse out
+const card = document.querySelector('.card')
+
+card.addEventListener('mouseover', () => {
+    card.style.background = '#00c9a7'
+    card.style.color = '#0b0f19'
+})
+
+card.addEventListener('mouseout', () => {
+    card.style.background = '#131929'
+    card.style.color = '#e8edf5'
+})
+
+// mouse enter and mouse leave (no bubbling)
+card.addEventListener('mouseenter', () => {
+    console.log('mouse entered card')
+})
+
+card.addEventListener('mouseleave', () => {
+    console.log('mouse left card')
+})
