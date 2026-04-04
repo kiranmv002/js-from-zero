@@ -149,4 +149,53 @@ list.addEventListener('click', (e) => {
     }
 })
 
+
+// --- window events ---
+
+// scroll
+window.addEventListener('scroll', () => {
+    console.log('scrolled to:', window.scrollY)
+})
+
+// resize
+window.addEventListener('resize', () => {
+    console.log('window width:', window.innerWidth)
+})
+
+// load - fires when page fully loads
+window.addEventListener('load', () => {
+    console.log('page fully loaded')
+})
+
+// DOMContentLoaded - fires when html is parsed
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('DOM ready')
+})
+
+
+// --- removing event listeners ---
+
+function handleClick() {
+    console.log('clicked')
 }
+
+btn.addEventListener('click', handleClick)
+
+// remove after 5 seconds
+setTimeout(() => {
+    btn.removeEventListener('click', handleClick)
+    console.log('listener removed')
+}, 5000)
+
+
+// --- once option ---
+// listener fires only once then removes itself
+
+btn.addEventListener('click', () => {
+    console.log('this only fires once')
+}, { once: true })
+
+
+// --- practical example ---
+// simple character counter for a textarea
+
