@@ -199,3 +199,43 @@ btn.addEventListener('click', () => {
 // --- practical example ---
 // simple character counter for a textarea
 
+const textarea = document.querySelector('#message')
+const counter = document.querySelector('#counter')
+const maxChars = 150
+
+if (textarea && counter) {
+    textarea.addEventListener('input', () => {
+        const remaining = maxChars - textarea.value.length
+
+        counter.textContent = `${textarea.value.length} / ${maxChars}`
+
+        if (remaining < 20) {
+            counter.style.color = '#ff6b6b'
+        } else {
+            counter.style.color = '#6b7a99'
+        }
+
+        if (textarea.value.length > maxChars) {
+            textarea.value = textarea.value.substring(0, maxChars)
+        }
+    })
+}
+
+
+// --- practical example ---
+// toggle password visibility
+
+const passwordInput = document.querySelector('#password')
+const toggleBtn = document.querySelector('#togglePass')
+
+if (passwordInput && toggleBtn) {
+    toggleBtn.addEventListener('click', () => {
+        if (passwordInput.type === 'password') {
+            passwordInput.type = 'text'
+            toggleBtn.textContent = 'hide'
+        } else {
+            passwordInput.type = 'password'
+            toggleBtn.textContent = 'show'
+        }
+    })
+}
