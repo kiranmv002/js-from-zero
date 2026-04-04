@@ -97,3 +97,56 @@ nameField.addEventListener('input', (e) => {
 // change event - fires when value changes and user leaves field
 nameField.addEventListener('change', (e) => {
     console.log('changed to:', e.target.value)
+})
+
+// focus and blur
+nameField.addEventListener('focus', () => {
+    nameField.style.borderColor = '#00c9a7'
+})
+
+nameField.addEventListener('blur', () => {
+    nameField.style.borderColor = '#1e2740'
+})
+
+
+// --- event object ---
+// e or event contains info about what happened
+
+document.addEventListener('click', (e) => {
+    console.log('clicked element:', e.target)
+    console.log('element type:', e.target.tagName)
+    console.log('click position x:', e.clientX)
+    console.log('click position y:', e.clientY)
+})
+
+
+// --- event bubbling ---
+// events bubble up from child to parent
+
+const parent = document.querySelector('#parent')
+const child = document.querySelector('#child')
+
+parent.addEventListener('click', () => {
+    console.log('parent clicked')
+})
+
+child.addEventListener('click', (e) => {
+    e.stopPropagation()   // stops bubbling to parent
+    console.log('child clicked')
+})
+
+
+// --- event delegation ---
+// attach one listener to parent instead of many to children
+// very useful for dynamic lists
+
+const list = document.querySelector('#list')
+
+list.addEventListener('click', (e) => {
+    if (e.target.tagName === 'LI') {
+        e.target.classList.toggle('done')
+        console.log('clicked item:', e.target.textContent)
+    }
+})
+
+}
