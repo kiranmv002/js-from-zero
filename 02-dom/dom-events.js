@@ -47,3 +47,53 @@ card.addEventListener('mouseenter', () => {
 card.addEventListener('mouseleave', () => {
     console.log('mouse left card')
 })
+
+
+// --- keyboard events ---
+
+const input = document.querySelector('#input')
+
+// keydown - fires when key is pressed
+input.addEventListener('keydown', (e) => {
+    console.log('key pressed:', e.key)
+    console.log('key code:', e.code)
+})
+
+// keyup - fires when key is released
+input.addEventListener('keyup', (e) => {
+    console.log('value now:', input.value)
+})
+
+// listen for specific key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        console.log('escape pressed')
+    }
+    if (e.key === 'Enter') {
+        console.log('enter pressed')
+    }
+})
+
+
+// --- form events ---
+
+const form = document.querySelector('#myForm')
+
+// submit event
+form.addEventListener('submit', (e) => {
+    e.preventDefault()   // stops page from reloading
+    console.log('form submitted')
+
+    const nameInput = document.querySelector('#name')
+    console.log('name entered:', nameInput.value)
+})
+
+// input event - fires on every keystroke
+const nameField = document.querySelector('#name')
+nameField.addEventListener('input', (e) => {
+    console.log('typing:', e.target.value)
+})
+
+// change event - fires when value changes and user leaves field
+nameField.addEventListener('change', (e) => {
+    console.log('changed to:', e.target.value)
