@@ -126,3 +126,25 @@
             flex-direction: column;
             gap: 10px;
         }
+        
+        .todo-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 16px;
+            background: #131929;
+            border: 1px solid #1e2740;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            animation: slideIn 0.3s ease;
+        }
+
+        .todo-item:hover { border-color: #00c9a7; }
+
+        .todo-item.done { opacity: 0.5; }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
