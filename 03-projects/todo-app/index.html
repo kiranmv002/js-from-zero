@@ -72,3 +72,29 @@
             cursor: pointer;
             transition: background 0.3s ease, transform 0.2s ease;
         }
+         .add-btn:hover { background: #00a88b; transform: translateY(-2px); }
+
+        /* filter tabs */
+        .filters {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .filter-btn {
+            padding: 6px 16px;
+            background: #131929;
+            border: 1px solid #1e2740;
+            border-radius: 20px;
+            color: #6b7a99;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn.active {
+            background: #00c9a7;
+            border-color: #00c9a7;
+            color: #0b0f19;
+            font-weight: 600;
+        }
