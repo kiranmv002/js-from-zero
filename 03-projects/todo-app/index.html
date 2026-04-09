@@ -178,5 +178,24 @@
             font-size: 15px;
             color: #e8edf5;
             transition: all 0.3s ease;
+        }
+
+        .todo-item.done .todo-text {
+            text-decoration: line-through;
+            color: #6b7a99;
+        }
+
+        /* priority badge */
+        .priority {
+            font-size: 11px;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-weight: 600;
+        }
+
+        .priority.high { background: rgba(255, 107, 107, 0.15); color: #ff6b6b; }
+        .priority.medium { background: rgba(255, 200, 0, 0.15); color: #ffc800; }
+        .priority.low { background: rgba(0, 201, 167, 0.15); color: #00c9a7; }
+
 
 </html>
