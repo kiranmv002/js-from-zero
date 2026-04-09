@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -197,5 +197,51 @@
         .priority.medium { background: rgba(255, 200, 0, 0.15); color: #ffc800; }
         .priority.low { background: rgba(0, 201, 167, 0.15); color: #00c9a7; }
 
+        /* delete button */
+        .delete-btn {
+            background: none;
+            border: none;
+            color: #6b7a99;
+            font-size: 16px;
+            cursor: pointer;
+            padding: 4px;
+            transition: color 0.3s ease;
+            flex-shrink: 0;
+        }
 
+        .delete-btn:hover { color: #ff6b6b; }
+
+        /* empty state */
+        .empty {
+            text-align: center;
+            padding: 40px 20px;
+            color: #6b7a99;
+            font-size: 15px;
+        }
+
+        .empty span { font-size: 36px; display: block; margin-bottom: 10px; }
+
+        /* priority selector */
+        .priority-select {
+            padding: 12px 10px;
+            background: #131929;
+            border: 1px solid #1e2740;
+            border-radius: 8px;
+            color: #9aaac4;
+            font-size: 13px;
+            outline: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="app">
+        <h1>my <span>todos</span></h1>
+        <p class="subtitle">stay organized. get things done.</p>
+
+        <div class="input-area">
+
+
+</body>
 </html>
