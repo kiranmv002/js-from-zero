@@ -1,4 +1,4 @@
--<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -241,6 +241,22 @@
         <p class="subtitle">stay organized. get things done.</p>
 
         <div class="input-area">
+            <input type="text" id="todoInput" placeholder="add a new task..." />
+            <select class="priority-select" id="prioritySelect">
+                <option value="low">🟢 low</option>
+                <option value="medium" selected>🟡 medium</option>
+                <option value="high">🔴 high</option>
+            </select>
+            <button class="add-btn" id="addBtn">+</button>
+        </div>
+
+        <div class="filters">
+            <button class="filter-btn active" data-filter="all">all</button>
+            <button class="filter-btn" data-filter="active">active</button>
+            <button class="filter-btn" data-filter="done">done</button>
+        </div>
+
+        <div class="stats">
 
 
 </body>
