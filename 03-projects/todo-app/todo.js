@@ -78,4 +78,23 @@ function clearDone() {
     render()
 }
 
+// --- filter todos ---
+function getFiltered() {
+    if (currentFilter === 'active') return todos.filter(t => !t.done)
+    if (currentFilter === 'done') return todos.filter(t => t.done)
+    return todos
+}
+
+
+// --- update stats ---
+function updateStats() {
+    const total = todos.length
+    const done = todos.filter(t => t.done).length
+    const active = total - done
+
+    const statsText = document.getElementById('statsText')
+    statsText.textContent = `${active} active · ${done} done · ${total} total`
+}
+
+
 
