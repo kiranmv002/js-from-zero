@@ -49,4 +49,33 @@ function addTodo() {
     input.focus()
 }
 
+// --- toggle done ---
+function toggleDone(id) {
+    todos = todos.map(todo => {
+        if (todo.id === id) {
+            return { ...todo, done: !todo.done }
+        }
+        return todo
+    })
+
+    saveTodos()
+    render()
+}
+
+
+// --- delete todo ---
+function deleteTodo(id) {
+    todos = todos.filter(todo => todo.id !== id)
+    saveTodos()
+    render()
+}
+
+
+// --- clear done todos ---
+function clearDone() {
+    todos = todos.filter(todo => !todo.done)
+    saveTodos()
+    render()
+}
+
 
