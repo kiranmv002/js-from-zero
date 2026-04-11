@@ -95,6 +95,37 @@ function updateStats() {
     const statsText = document.getElementById('statsText')
     statsText.textContent = `${active} active · ${done} done · ${total} total`
 }
+// --- render todos ---
+function render() {
+    const list = document.getElementById('todoList')
+    const filtered = getFiltered()
 
+    updateStats()
 
+    if (filtered.length === 0) {
+        const messages = {
+            all: { icon: '📝', text: 'no tasks yet. add one above!' },
+            active: { icon: '✅', text: 'no active tasks. all done!' },
+            done: { icon: '🎯', text: 'no completed tasks yet.' }
+        }
+        const msg = messages[currentFilter]
+        list.innerHTML = `
+            <div class="empty">
+                <span>${msg.icon}</span>
+                ${msg.text}
+            </div>
+        `
+        return
+    }
 
+    list.innerHTML = filtered.map(todo => `
+        <div class="todo-item ${todo.done ? 'done' : ''}" data-id="${todo.id}">
+            <button class="check-btn" onclick="toggleDone(${todo.id})">
+                ${todo.done ? '✓' : ''}
+            </button>
+            <span class="todo-text">${todo.text}</span>
+            <span class="priority ${todo.priority}">${todo.priority}</span>
+            <button class="delete-btn" onclick="deleteTodo(${todo.id})">✕</button>
+        </div>
+    `).join('')
+}
