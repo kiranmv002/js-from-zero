@@ -101,6 +101,14 @@ files → `02-dom/dom-basics.js` `02-dom/index.html`
 - traversing DOM — parent, children, siblings
 - practical examples — change colors, add classes
 
+### ✅ day 9 — dom events
+files → `02-dom/dom-events.js` `02-dom/index.html`
+
+- addEventListener — the main way to listen for events
+- click, dblclick, mouseover, mouseout, mouseenter, mouseleave
+- keyboard events — keydown, keyup, specific keys
+- form events — submit, input, change, focus, blur
+
 ---
 
 ## 📊 progress
