@@ -108,6 +108,12 @@ files → `02-dom/dom-events.js` `02-dom/index.html`
 - click, dblclick, mouseover, mouseout, mouseenter, mouseleave
 - keyboard events — keydown, keyup, specific keys
 - form events — submit, input, change, focus, blur
+- event object — target, tagName, clientX, clientY
+- event bubbling and stopPropagation
+- event delegation — one listener for all children
+- window events — scroll, resize, load, DOMContentLoaded
+- removeEventListener and once option
+- practical examples — character counter, password toggle
 
 ---
 
