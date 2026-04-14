@@ -147,3 +147,23 @@ document.getElementById('todoInput').addEventListener('keydown', (e) => {
     if (e.key === 'Enter') addTodo()
 })
 
+// filter buttons
+document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        currentFilter = btn.getAttribute('data-filter')
+
+        document.querySelectorAll('.filter-btn').forEach(b => {
+            b.classList.remove('active')
+        })
+        btn.classList.add('active')
+
+        render()
+    })
+})
+
+// clear done button
+document.getElementById('clearDone').addEventListener('click', clearDone)
+
+
+// --- initial render ---
+render()
