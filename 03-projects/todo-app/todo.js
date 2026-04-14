@@ -136,3 +136,14 @@ function render() {
     `).join('')
 }
 
+
+// --- event listeners ---
+
+// add button click
+document.getElementById('addBtn').addEventListener('click', addTodo)
+
+// enter key to add
+document.getElementById('todoInput').addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') addTodo()
+})
+
