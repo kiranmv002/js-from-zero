@@ -2,6 +2,7 @@
 // uses everything learned so far:
 // arrays, objects, functions, dom, events, local storage
 
+
 // --- state ---
 let todos = JSON.parse(localStorage.getItem('todos')) || []
 let currentFilter = 'all'
@@ -11,6 +12,7 @@ let currentFilter = 'all'
 function saveTodos() {
     localStorage.setItem('todos', JSON.stringify(todos))
 }
+
 
 // --- create todo object ---
 function createTodo(text, priority) {
@@ -49,6 +51,7 @@ function addTodo() {
     input.focus()
 }
 
+
 // --- toggle done ---
 function toggleDone(id) {
     todos = todos.map(todo => {
@@ -78,6 +81,7 @@ function clearDone() {
     render()
 }
 
+
 // --- filter todos ---
 function getFiltered() {
     if (currentFilter === 'active') return todos.filter(t => !t.done)
@@ -95,6 +99,8 @@ function updateStats() {
     const statsText = document.getElementById('statsText')
     statsText.textContent = `${active} active · ${done} done · ${total} total`
 }
+
+
 // --- render todos ---
 function render() {
     const list = document.getElementById('todoList')
@@ -129,3 +135,4 @@ function render() {
         </div>
     `).join('')
 }
+
