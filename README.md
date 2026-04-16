@@ -123,6 +123,11 @@ files → `03-projects/todo-app/index.html` `03-projects/todo-app/todo.js`
 - mark tasks as done with animated checkbox
 - delete tasks with one click
 - filter by all active done
+- stats showing active done and total count
+- clear all done tasks at once
+- tasks saved in localStorage — stay after page refresh
+- empty state messages for each filter
+- enter key to add tasks quickly
 
 ---
 
