@@ -115,6 +115,15 @@ files → `02-dom/dom-events.js` `02-dom/index.html`
 - removeEventListener and once option
 - practical examples — character counter, password toggle
 
+### ✅ day 10 — mini project: todo app
+files → `03-projects/todo-app/index.html` `03-projects/todo-app/todo.js`
+
+- built a full todo app using everything learned so far
+- add tasks with low medium high priority
+- mark tasks as done with animated checkbox
+- delete tasks with one click
+- filter by all active done
+
 ---
 
 ## 📊 progress
