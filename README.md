@@ -143,6 +143,8 @@ files → `03-projects/todo-app/index.html` `03-projects/todo-app/todo.js`
 | day 6 | objects basics                    | ✅ done |
 | day 7 | array methods                     | ✅ done |
 | day 8 | dom basics                        | ✅ done |
+| day 9 | dom events                        | ✅ done |
+
 ---
 
 day 8 done. dom manipulation is how javascript talks to html 💪
