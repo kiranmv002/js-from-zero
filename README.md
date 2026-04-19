@@ -147,4 +147,4 @@ files → `03-projects/todo-app/index.html` `03-projects/todo-app/todo.js`
 | day 10 | mini project — todo app          | ✅ done |
 ---
 
-day 8 done. dom manipulation is how javascript talks to html 💪
+day 10 done. first real project built from scratch 🔥
