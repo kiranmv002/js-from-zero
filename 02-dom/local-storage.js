@@ -148,3 +148,46 @@ console.log('after decrement:', getCount())
 
 // --- practical example 3 ---
 // form data that auto saves as you type
+// so you dont lose it on refresh
+
+function autoSaveForm() {
+    const fields = ['username', 'email', 'bio']
+
+    // load saved values on page load
+    fields.forEach(field => {
+        const input = document.getElementById(field)
+        if (input) {
+            const saved = localStorage.getItem('form_' + field)
+            if (saved) input.value = saved
+        }
+    })
+
+    // save on every input change
+    fields.forEach(field => {
+        const input = document.getElementById(field)
+        if (input) {
+            input.addEventListener('input', () => {
+                localStorage.setItem('form_' + field, input.value)
+            })
+        }
+    })
+}
+
+autoSaveForm()
+
+
+// --- practical example 4 ---
+// recently viewed items
+
+function addToRecent(item) {
+    let recent = JSON.parse(localStorage.getItem('recent') || '[]')
+
+    // remove if already exists
+    recent = recent.filter(i => i !== item)
+
+    // add to beginning
+    recent.unshift(item)
+
+    // keep only last 5
+    recent = recent.slice(0, 5)
+
