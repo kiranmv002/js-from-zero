@@ -99,3 +99,52 @@ function saveTheme(theme) {
     document.body.className = theme
     console.log('theme saved:', theme)
 }
+
+function loadTheme() {
+    const saved = localStorage.getItem('theme') || 'dark'
+    document.body.className = saved
+    console.log('theme loaded:', saved)
+}
+
+loadTheme()
+
+
+// --- practical example 2 ---
+// counter that remembers its value
+
+function getCount() {
+    return parseInt(localStorage.getItem('counter') || '0')
+}
+
+function increment() {
+    const current = getCount()
+    const newCount = current + 1
+    localStorage.setItem('counter', newCount)
+    console.log('count:', newCount)
+    return newCount
+}
+
+function decrement() {
+    const current = getCount()
+    const newCount = Math.max(0, current - 1)
+    localStorage.setItem('counter', newCount)
+    console.log('count:', newCount)
+    return newCount
+}
+
+function resetCount() {
+    localStorage.removeItem('counter')
+    console.log('count reset')
+}
+
+console.log('current count:', getCount())
+increment()
+increment()
+increment()
+console.log('after 3 increments:', getCount())
+decrement()
+console.log('after decrement:', getCount())
+
+
+// --- practical example 3 ---
+// form data that auto saves as you type
