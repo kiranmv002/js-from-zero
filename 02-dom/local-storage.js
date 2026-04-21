@@ -39,3 +39,63 @@ const user = {
 // save object
 localStorage.setItem('user', JSON.stringify(user))
 
+// read object back
+const savedUser = JSON.parse(localStorage.getItem('user'))
+console.log(savedUser)
+console.log(savedUser.name)      // Kiran
+console.log(savedUser.skills)    // [HTML, CSS, JavaScript]
+
+
+// storing array
+const todos = ['learn js', 'build projects', 'push to github']
+localStorage.setItem('todos', JSON.stringify(todos))
+
+const savedTodos = JSON.parse(localStorage.getItem('todos'))
+console.log(savedTodos)   // [learn js, build projects, push to github]
+
+
+// --- safe reading ---
+// getItem returns null if key doesnt exist
+// always handle null case
+
+function getFromStorage(key, defaultValue) {
+    const item = localStorage.getItem(key)
+    if (item === null) return defaultValue
+    try {
+        return JSON.parse(item)
+    } catch {
+        return item
+    }
+}
+
+const theme = getFromStorage('theme', 'dark')
+console.log(theme)   // dark (default since we havent set it)
+
+const count = getFromStorage('count', 0)
+console.log(count)   // 0 (default)
+
+
+// --- checking available space ---
+// localStorage limit is about 5MB per origin
+
+function getStorageSize() {
+    let total = 0
+    for (let key in localStorage) {
+        if (localStorage.hasOwnProperty(key)) {
+            total += localStorage[key].length + key.length
+        }
+    }
+    return (total / 1024).toFixed(2) + ' KB'
+}
+
+console.log('storage used:', getStorageSize())
+
+
+// --- practical example 1 ---
+// theme preference that persists
+
+function saveTheme(theme) {
+    localStorage.setItem('theme', theme)
+    document.body.className = theme
+    console.log('theme saved:', theme)
+}
