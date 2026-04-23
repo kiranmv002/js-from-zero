@@ -16,3 +16,47 @@
         label { font-size: 13px; color: #6b7a99; display: block; margin-top: 12px; }
     </style>
 </head>
+<body id="themeBody">
+
+    <h1>Day 11 — Local Storage</h1>
+
+    <h3>theme toggle</h3>
+    <button onclick="saveTheme('theme-dark')">🌙 dark</button>
+    <button onclick="saveTheme('theme-light')">☀️ light</button>
+
+    <h3>persistent counter</h3>
+    <div class="count-display" id="countDisplay">0</div>
+    <button onclick="handleIncrement()">+ increment</button>
+    <button onclick="handleDecrement()">- decrement</button>
+    <button class="secondary" onclick="handleReset()">reset</button>
+
+    <h3>auto save form</h3>
+    <label>username</label>
+    <input type="text" id="username" placeholder="your username">
+    <label>email</label>
+    <input type="email" id="email" placeholder="your email">
+    <label>bio</label>
+    <textarea id="bio" rows="3" placeholder="tell us about yourself..."></textarea>
+    <p style="font-size:13px; color:#6b7a99; margin-top:8px;">
+        ✅ type something then refresh — your data stays!
+    </p>
+
+    <script src="local-storage.js"></script>
+    <script>
+        // update count display on load
+        document.getElementById('countDisplay').textContent = getCount()
+
+        function handleIncrement() {
+            document.getElementById('countDisplay').textContent = increment()
+        }
+        function handleDecrement() {
+            document.getElementById('countDisplay').textContent = decrement()
+        }
+        function handleReset() {
+            resetCount()
+            document.getElementById('countDisplay').textContent = 0
+        }
+    </script>
+
+</body>
+</html>
