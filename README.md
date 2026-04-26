@@ -135,6 +135,13 @@ files → `02-dom/local-storage.js` `02-dom/local-storage.html`
 - setItem getItem removeItem clear
 - storing objects and arrays with JSON stringify and parse
 - safe reading with null handling
+- checking storage size
+- practical examples:
+  - theme preference that persists on refresh
+  - counter that remembers its value
+  - auto save form data as you type
+  - recently viewed items with max 5
+- sessionStorage — clears when tab closes
 
 ---
 
