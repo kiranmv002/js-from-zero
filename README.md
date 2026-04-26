@@ -159,6 +159,7 @@ files → `02-dom/local-storage.js` `02-dom/local-storage.html`
 | day 8 | dom basics                        | ✅ done |
 | day 9 | dom events                        | ✅ done |
 | day 10 | mini project — todo app          | ✅ done |
+| day 11 | local storage                    | ✅ done |
 ---
 
 day 10 done. first real project built from scratch 🔥
