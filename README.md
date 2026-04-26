@@ -162,4 +162,4 @@ files → `02-dom/local-storage.js` `02-dom/local-storage.html`
 | day 11 | local storage                    | ✅ done |
 ---
 
-day 10 done. first real project built from scratch 🔥
+day 11 done. localStorage is how websites remember you 💪
