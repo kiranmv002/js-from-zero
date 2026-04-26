@@ -129,6 +129,13 @@ files → `03-projects/todo-app/index.html` `03-projects/todo-app/todo.js`
 - empty state messages for each filter
 - enter key to add tasks quickly
 
+### ✅ day 11 — local storage
+files → `02-dom/local-storage.js` `02-dom/local-storage.html`
+
+- setItem getItem removeItem clear
+- storing objects and arrays with JSON stringify and parse
+- safe reading with null handling
+
 ---
 
 ## 📊 progress
