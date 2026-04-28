@@ -143,6 +143,7 @@ files → `02-dom/local-storage.js` `02-dom/local-storage.html`
   - recently viewed items with max 5
 - sessionStorage — clears when tab closes
 
+### ✅ day 12
 ---
 
 ## 📊 progress
