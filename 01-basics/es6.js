@@ -186,3 +186,56 @@ function first2AndRest(a, b, ...rest) {
 }
 
 first2AndRest(1, 2, 3, 4, 5)
+
+
+// --- short circuit and optional chaining ---
+
+// && short circuit
+const isLoggedIn = true
+isLoggedIn && console.log('user is logged in')   // runs
+
+const isAdmin = false
+isAdmin && console.log('user is admin')   // does not run
+
+// || default value
+const username = null
+const display = username || 'Guest'
+console.log(display)   // Guest
+
+// ?? nullish coalescing — only null or undefined triggers default
+const count = 0
+console.log(count || 'default')    // default (wrong — 0 is falsy)
+console.log(count ?? 'default')    // 0 (correct — 0 is not null)
+
+// optional chaining ?.
+const user = {
+    name: 'Kiran',
+    address: {
+        city: 'Hyderabad'
+    }
+}
+
+console.log(user?.name)              // Kiran
+console.log(user?.phone?.number)     // undefined (no error)
+console.log(user?.address?.city)     // Hyderabad
+
+
+// --- enhanced object literals ---
+
+const uname = 'Kiran'
+const uage = 19
+
+// old way
+const oldObj = { uname: uname, uage: uage }
+
+// new way — shorthand property
+const newObj = { uname, uage }
+console.log(newObj)
+
+// computed property names
+const key = 'color'
+const style = {
+    [key]: 'teal',
+    [`${key}Dark`]: 'dark teal'
+}
+console.log(style)   // { color: 'teal', colorDark: 'dark teal' }
