@@ -135,3 +135,54 @@ function displayUser({ name, age, city = 'unknown' }) {
 
 displayUser({ name: 'Kiran', age: 19, city: 'Hyderabad' })
 displayUser({ name: 'Ravi', age: 20 })
+
+
+// --- spread operator ---
+
+// spread array
+const nums1 = [1, 2, 3]
+const nums2 = [4, 5, 6]
+const combined = [...nums1, ...nums2]
+console.log(combined)   // [1,2,3,4,5,6]
+
+// copy array
+const original = [1, 2, 3]
+const copy = [...original]
+copy.push(4)
+console.log(original)   // [1,2,3] unchanged
+console.log(copy)       // [1,2,3,4]
+
+// spread object
+const obj1 = { a: 1, b: 2 }
+const obj2 = { c: 3, d: 4 }
+const merged = { ...obj1, ...obj2 }
+console.log(merged)   // { a:1, b:2, c:3, d:4 }
+
+// override with spread
+const defaults = { theme: 'dark', lang: 'en', fontSize: 14 }
+const custom = { ...defaults, theme: 'light' }
+console.log(custom)   // theme is now light
+
+// spread in function call
+const numbers = [5, 2, 8, 1, 9]
+console.log(Math.max(...numbers))   // 9
+console.log(Math.min(...numbers))   // 1
+
+
+// --- rest parameters ---
+// collect remaining arguments into array
+
+function sum(...nums) {
+    return nums.reduce((a, b) => a + b, 0)
+}
+
+console.log(sum(1, 2, 3))         // 6
+console.log(sum(1, 2, 3, 4, 5))   // 15
+
+function first2AndRest(a, b, ...rest) {
+    console.log('first:', a)
+    console.log('second:', b)
+    console.log('rest:', rest)
+}
+
+first2AndRest(1, 2, 3, 4, 5)
