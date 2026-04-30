@@ -84,3 +84,54 @@ function greetUser(name = 'stranger', greeting = 'hello') {
 console.log(greetUser('Kiran', 'hey'))   // hey Kiran!
 console.log(greetUser('Kiran'))          // hello Kiran!
 console.log(greetUser())                 // hello stranger!
+
+
+// --- destructuring ---
+
+// array destructuring
+const colors = ['red', 'green', 'blue']
+const [first, second, third] = colors
+console.log(first)    // red
+console.log(second)   // green
+
+// skip elements
+const [, , last] = colors
+console.log(last)   // blue
+
+// with default values
+const [x = 0, y = 0, z = 0, w = 0] = [1, 2]
+console.log(x, y, z, w)   // 1 2 0 0
+
+// object destructuring
+const student = {
+    name: 'Kiran',
+    age: 19,
+    city: 'Hyderabad',
+    college: 'JNTU'
+}
+
+const { name: studentName, age, city } = student
+console.log(studentName)   // Kiran
+console.log(age)           // 19
+
+// nested destructuring
+const profile = {
+    user: {
+        name: 'Kiran',
+        address: {
+            city: 'Hyderabad'
+        }
+    }
+}
+
+const { user: { name: userName, address: { city: userCity } } } = profile
+console.log(userName)   // Kiran
+console.log(userCity)   // Hyderabad
+
+// destructuring in function params
+function displayUser({ name, age, city = 'unknown' }) {
+    console.log(`${name}, ${age}, ${city}`)
+}
+
+displayUser({ name: 'Kiran', age: 19, city: 'Hyderabad' })
+displayUser({ name: 'Ravi', age: 20 })
