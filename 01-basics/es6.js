@@ -239,3 +239,54 @@ const style = {
     [`${key}Dark`]: 'dark teal'
 }
 console.log(style)   // { color: 'teal', colorDark: 'dark teal' }
+
+// shorthand methods
+const calc = {
+    value: 0,
+    add(n) { this.value += n },
+    subtract(n) { this.value -= n },
+    result() { return this.value }
+}
+
+calc.add(10)
+calc.add(5)
+calc.subtract(3)
+console.log(calc.result())   // 12
+
+
+// --- for of and for in ---
+
+// for of — iterate values
+const fruits = ['apple', 'mango', 'banana']
+for (const fruit of fruits) {
+    console.log(fruit)
+}
+
+// for in — iterate keys
+const person = { name: 'Kiran', age: 19, city: 'Hyderabad' }
+for (const key in person) {
+    console.log(`${key}: ${person[key]}`)
+}
+
+
+// --- practical example ---
+// combine everything
+
+const students = [
+    { name: 'Kiran', marks: { maths: 90, science: 85 } },
+    { name: 'Ravi', marks: { maths: 75, science: 80 } },
+    { name: 'Arjun', marks: { maths: 88, science: 92 } }
+]
+
+// destructure and calculate average for each
+const results = students.map(({ name, marks: { maths, science } }) => ({
+    name,
+    average: (maths + science) / 2,
+    grade: ((maths + science) / 2) >= 85 ? 'A' : 'B'
+}))
+
+console.log(results)
+
+// find topper using spread and destructuring
+const [topper] = [...results].sort((a, b) => b.average - a.average)
+console.log(`topper: ${topper.name} with ${topper.average} average`)
