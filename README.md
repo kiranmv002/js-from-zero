@@ -150,7 +150,17 @@ file → `01-basics/es6.js`
 - template literals with ${}
 - arrow functions — all variations
 - default parameters
-
+- array and object destructuring
+- nested destructuring
+- destructuring in function params
+- spread operator — arrays and objects
+- rest parameters
+- short circuit && and ||
+- nullish coalescing ??
+- optional chaining ?.
+- enhanced object literals
+- for of and for in loops
+- practical example combining all features
 
 ---
 
