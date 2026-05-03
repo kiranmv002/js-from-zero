@@ -143,7 +143,15 @@ files → `02-dom/local-storage.js` `02-dom/local-storage.html`
   - recently viewed items with max 5
 - sessionStorage — clears when tab closes
 
-### ✅ day 12 - next setting
+### ✅ day 12 — es6+ features
+file → `01-basics/es6.js`
+
+- let and const vs var
+- template literals with ${}
+- arrow functions — all variations
+- default parameters
+
+
 ---
 
 ## 📊 progress
