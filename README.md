@@ -183,4 +183,4 @@ file → `01-basics/es6.js`
 
 ---
 
-day 11 done. localStorage is how websites remember you 💪
+day 12 done. es6 makes javascript so much cleaner 💪
