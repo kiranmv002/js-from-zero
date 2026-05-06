@@ -179,6 +179,8 @@ file → `01-basics/es6.js`
 | day 9 | dom events                        | ✅ done |
 | day 10 | mini project — todo app          | ✅ done |
 | day 11 | local storage                    | ✅ done |
+| day 12 | es6 features                     | ✅ done |
+
 ---
 
 day 11 done. localStorage is how websites remember you 💪
