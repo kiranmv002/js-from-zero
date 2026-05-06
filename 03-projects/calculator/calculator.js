@@ -48,3 +48,105 @@ function handleNumber(value) {
     updateDisplay(currentValue)
 }
 
+
+// --- handle decimal ---
+function handleDecimal() {
+    if (shouldResetDisplay) {
+        currentValue = '0.'
+        shouldResetDisplay = false
+        updateDisplay(currentValue)
+        return
+    }
+    if (!currentValue.includes('.')) {
+        currentValue += '.'
+        updateDisplay(currentValue)
+    }
+}
+
+
+// --- handle operator ---
+function handleOperator(op) {
+    if (operator && !shouldResetDisplay) {
+        calculate()
+    }
+
+    previousValue = currentValue
+    operator = op
+    shouldResetDisplay = true
+
+    const opSymbols = { '+': '+', '-': '−', '*': '×', '/': '÷' }
+    expression.textContent = `${previousValue} ${opSymbols[op]}`
+}
+
+
+// --- calculate result ---
+function calculate() {
+    if (!operator || !previousValue) return
+
+    const prev = parseFloat(previousValue)
+    const curr = parseFloat(currentValue)
+    let result
+
+    switch (operator) {
+        case '+': result = prev + curr; break
+        case '-': result = prev - curr; break
+        case '*': result = prev * curr; break
+        case '/':
+            if (curr === 0) {
+                currentValue = 'Error'
+                updateDisplay('Error')
+                expression.textContent = ''
+                operator = null
+                shouldResetDisplay = true
+                return
+            }
+            result = prev / curr
+            break
+        default: return
+    }
+
+    // round to avoid floating point issues
+    result = parseFloat(result.toPrecision(10))
+
+    // save to history
+    const opSymbols = { '+': '+', '-': '−', '*': '×', '/': '÷' }
+    const historyEntry = `${previousValue} ${opSymbols[operator]} ${currentValue} = ${result}`
+    addToHistory(historyEntry)
+
+    expression.textContent = `${previousValue} ${opSymbols[operator]} ${currentValue} =`
+    currentValue = result.toString()
+    operator = null
+    shouldResetDisplay = true
+
+    updateDisplay(currentValue)
+}
+
+
+// --- clear ---
+function clear() {
+    currentValue = '0'
+    previousValue = ''
+    operator = null
+    shouldResetDisplay = false
+    expression.textContent = ''
+    updateDisplay('0')
+}
+
+
+// --- toggle sign ---
+function toggleSign() {
+    if (currentValue === '0' || currentValue === 'Error') return
+    currentValue = currentValue.startsWith('-')
+        ? currentValue.slice(1)
+        : '-' + currentValue
+    updateDisplay(currentValue)
+}
+
+
+// --- percentage ---
+function handlePercent() {
+    if (currentValue === 'Error') return
+    const num = parseFloat(currentValue)
+    currentValue = (num / 100).toString()
+    updateDisplay(currentValue)
+}
