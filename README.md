@@ -162,6 +162,15 @@ file → `01-basics/es6.js`
 - for of and for in loops
 - practical example combining all features
 
+### ✅ day 13 — mini project: calculator
+files → `03-projects/calculator/index.html` `03-projects/calculator/calculator.js`
+
+- built a full calculator from scratch
+- add subtract multiply divide operations
+- AC clears everything
+- plus minus toggle and percentage
+
+
 ---
 
 ## 📊 progress
