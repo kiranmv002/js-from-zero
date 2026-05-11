@@ -198,4 +198,4 @@ files → `03-projects/calculator/index.html` `03-projects/calculator/calculator
 
 ---
 
-day 12 done. es6 makes javascript so much cleaner 💪
+day 13 done. es6 makes javascript so much cleaner 💪
