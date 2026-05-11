@@ -150,3 +150,11 @@ function handlePercent() {
     currentValue = (num / 100).toString()
     updateDisplay(currentValue)
 }
+
+
+// --- history ---
+function addToHistory(entry) {
+    history.unshift(entry)
+    if (history.length > 10) history.pop()
+    renderHistory()
+}
