@@ -194,6 +194,7 @@ files → `03-projects/calculator/index.html` `03-projects/calculator/calculator
 | day 10 | mini project — todo app          | ✅ done |
 | day 11 | local storage                    | ✅ done |
 | day 12 | es6 features                     | ✅ done |
+| day 13 | mini project — calculator        | ✅ done |
 
 ---
 
