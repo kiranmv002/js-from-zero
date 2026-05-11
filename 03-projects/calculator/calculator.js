@@ -158,3 +158,23 @@ function addToHistory(entry) {
     if (history.length > 10) history.pop()
     renderHistory()
 }
+
+function renderHistory() {
+    if (history.length === 0) {
+        historyEl.innerHTML = '<div class="history-empty">no history yet</div>'
+        return
+    }
+
+    historyEl.innerHTML = history.map(entry =>
+        `<div class="history-item" onclick="useHistory('${entry}')">${entry}</div>`
+    ).join('')
+}
+
+function useHistory(entry) {
+    const result = entry.split('= ')[1]
+    if (result) {
+        currentValue = result
+        updateDisplay(currentValue)
+        shouldResetDisplay = true
+    }
+}
