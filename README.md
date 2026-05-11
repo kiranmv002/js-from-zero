@@ -169,7 +169,12 @@ files → `03-projects/calculator/index.html` `03-projects/calculator/calculator
 - add subtract multiply divide operations
 - AC clears everything
 - plus minus toggle and percentage
-
+- calculation history saved below buttons
+- click history item to reuse result
+- full keyboard support — numbers operators enter escape backspace
+- division by zero shows error
+- floating point precision handled
+- max 10 digit display limit
 
 ---
 
