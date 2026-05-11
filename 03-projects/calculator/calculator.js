@@ -178,3 +178,44 @@ function useHistory(entry) {
         shouldResetDisplay = true
     }
 }
+
+
+// --- keyboard support ---
+document.addEventListener('keydown', (e) => {
+    if (e.key >= '0' && e.key <= '9') handleNumber(e.key)
+    else if (e.key === '.') handleDecimal()
+    else if (e.key === '+') handleOperator('+')
+    else if (e.key === '-') handleOperator('-')
+    else if (e.key === '*') handleOperator('*')
+    else if (e.key === '/') { e.preventDefault(); handleOperator('/') }
+    else if (e.key === 'Enter' || e.key === '=') calculate()
+    else if (e.key === 'Escape') clear()
+    else if (e.key === 'Backspace') {
+        if (currentValue.length > 1 && !shouldResetDisplay) {
+            currentValue = currentValue.slice(0, -1)
+            updateDisplay(currentValue)
+        } else {
+            currentValue = '0'
+            updateDisplay('0')
+        }
+    }
+})
+
+
+// --- button click events ---
+document.querySelectorAll('.btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const action = btn.getAttribute('data-action')
+        const value = btn.getAttribute('data-value')
+
+        switch (action) {
+            case 'number': handleNumber(value); break
+            case 'decimal': handleDecimal(); break
+            case 'operator': handleOperator(value); break
+            case 'equals': calculate(); break
+            case 'clear': clear(); break
+            case 'sign': toggleSign(); break
+            case 'percent': handlePercent(); break
+        }
+    })
+})
