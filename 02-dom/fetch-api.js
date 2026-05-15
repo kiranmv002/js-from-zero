@@ -120,3 +120,71 @@ async function createPost(title, body) {
 
 createPost('my first post', 'this is the content of my first post')
 
+
+// --- PUT request ---
+// updating existing data
+
+async function updatePost(id, updates) {
+    try {
+        const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(updates)
+        })
+
+        const updated = await response.json()
+        console.log('updated post:', updated)
+        return updated
+    } catch (error) {
+        console.error('error updating:', error)
+    }
+}
+
+updatePost(1, { title: 'updated title', body: 'updated body', userId: 1 })
+
+
+// --- DELETE request ---
+
+async function deletePost(id) {
+    try {
+        const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
+            method: 'DELETE'
+        })
+
+        if (response.ok) {
+            console.log(`post ${id} deleted successfully`)
+        }
+    } catch (error) {
+        console.error('error deleting:', error)
+    }
+}
+
+deletePost(1)
+
+
+// --- fetch with headers ---
+// some APIs need authentication headers
+
+async function fetchWithAuth(url, token) {
+    try {
+        const response = await fetch(url, {
+            headers: {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json'
+            }
+        })
+
+        if (response.status === 401) {
+            throw new Error('unauthorized — invalid token')
+        }
+
+        const data = await response.json()
+        return data
+    } catch (error) {
+        console.error(error)
+    }
+}
+
+
