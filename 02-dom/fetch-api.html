@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 14 - Fetch and APIs</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: sans-serif; padding: 30px; background: #0b0f19; color: #e8edf5; }
+        h1 { color: #00c9a7; margin-bottom: 20px; font-size: 20px; }
+        h3 { color: #00c9a7; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; margin: 20px 0 10px; }
+        input { padding: 10px 14px; background: #131929; border: 1px solid #1e2740; border-radius: 6px; color: #e8edf5; font-size: 14px; width: 220px; outline: none; }
+        input:focus { border-color: #00c9a7; }
+        button { padding: 10px 20px; background: #00c9a7; color: #0b0f19; border: none; border-radius: 6px; cursor: pointer; font-size: 14px; font-weight: 600; margin-left: 8px; }
+        .card { background: #131929; border: 1px solid #1e2740; border-radius: 10px; padding: 20px; margin: 10px 0; max-width: 500px; }
+        .card h2 { font-size: 16px; margin-bottom: 8px; }
+        .card p { color: #9aaac4; font-size: 13px; line-height: 1.6; }
+        .tag { display: inline-block; padding: 2px 8px; background: rgba(0,201,167,0.1); border-radius: 10px; font-size: 11px; color: #00c9a7; margin: 2px; }
+        .loading { color: #6b7a99; font-size: 14px; }
+        .error { color: #ff6b6b; font-size: 14px; }
+        .stat { display: inline-block; margin-right: 16px; font-size: 13px; color: #9aaac4; }
+        .stat span { color: #00c9a7; font-weight: 600; }
+        .avatar { width: 60px; height: 60px; border-radius: 50%; margin-right: 14px; vertical-align: middle; }
+    </style>
+</head>
+<body>
+
+    <h1>Day 14 — Fetch and APIs</h1>
+
+    <h3>fetch a post by id</h3>
+    <div style="display:flex;align-items:center;gap:0;">
+        <input type="number" id="postId" value="1" min="1" max="100" style="width:80px;">
+        <button onclick="fetchPost()">fetch post</button>
+    </div>
+    <div id="postResult" class="card" style="margin-top:12px; display:none;"></div>
+
+    <h3>search github user</h3>
+    <div>
+        <input type="text" id="githubUser" value="kiranmv002" placeholder="github username">
+        <button onclick="fetchGithubUser()">search</button>
+    </div>
+    <div id="githubResult" style="margin-top:12px;"></div>
+
+    <h3>fetch all posts</h3>
+    <button onclick="fetchAllPosts()">load posts</button>
+    <div id="allPostsResult" style="margin-top:12px; max-width: 500px;"></div>
+
+    <script src="fetch-api.js"></script>
+    <script>
+        async function fetchPost() {
+            const id = document.getElementById('postId').value
+            const result = document.getElementById('postResult')
+            result.style.display = 'block'
+            result.innerHTML = '<p class="loading">loading...</p>'
+
+            try {
+                const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`)
+                const post = await res.json()
+                result.innerHTML = `
+                    <h2>${post.title}</h2>
+                    <p style="margin-top:8px;">${post.body}</p>
+                    <p style="margin-top:8px;"><span class="tag">post #${post.id}</span> <span class="tag">user ${post.userId}</span></p>
+                `
+            } catch {
+                result.innerHTML = '<p class="error">failed to fetch post</p>'
+            }
+        }
