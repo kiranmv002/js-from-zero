@@ -65,3 +65,61 @@
                 result.innerHTML = '<p class="error">failed to fetch post</p>'
             }
         }
+
+        async function fetchGithubUser() {
+            const username = document.getElementById('githubUser').value.trim()
+            const result = document.getElementById('githubResult')
+            if (!username) return
+            result.innerHTML = '<p class="loading">loading...</p>'
+
+            try {
+                const res = await fetch(`https://api.github.com/users/${username}`)
+                if (!res.ok) throw new Error('user not found')
+                const user = await res.json()
+                result.innerHTML = `
+                    <div class="card">
+                        <div style="display:flex;align-items:center;margin-bottom:12px;">
+                            <img class="avatar" src="${user.avatar_url}" alt="${user.login}">
+                            <div>
+                                <h2>${user.name || user.login}</h2>
+                                <p>${user.bio || 'no bio'}</p>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="stat">repos <span>${user.public_repos}</span></div>
+                            <div class="stat">followers <span>${user.followers}</span></div>
+                            <div class="stat">following <span>${user.following}</span></div>
+                        </div>
+                        ${user.location ? `<p style="margin-top:8px;font-size:13px;">📍 ${user.location}</p>` : ''}
+                    </div>
+                `
+            } catch (e) {
+                result.innerHTML = `<p class="error">${e.message}</p>`
+            }
+        }
+
+        async function fetchAllPosts() {
+            const result = document.getElementById('allPostsResult')
+            result.innerHTML = '<p class="loading">loading 100 posts...</p>'
+
+            try {
+                const res = await fetch('https://jsonplaceholder.typicode.com/posts')
+                const posts = await res.json()
+                const first5 = posts.slice(0, 5)
+                result.innerHTML = first5.map(post => `
+                    <div class="card" style="margin-bottom:8px;">
+                        <h2>${post.id}. ${post.title}</h2>
+                        <p style="margin-top:6px;">${post.body.substring(0, 80)}...</p>
+                    </div>
+                `).join('') + `<p style="color:#6b7a99;font-size:13px;margin-top:8px;">showing 5 of ${posts.length} posts</p>`
+            } catch {
+                result.innerHTML = '<p class="error">failed to load posts</p>'
+            }
+        }
+
+        fetchPost()
+        fetchGithubUser()
+    </script>
+
+</body>
+</html>
