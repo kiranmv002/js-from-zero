@@ -188,3 +188,88 @@ async function fetchWithAuth(url, token) {
 }
 
 
+// --- parallel fetch ---
+// fetch multiple things at the same time
+// Promise.all waits for all to finish
+
+async function fetchMultiple() {
+    try {
+        const [users, posts, todos] = await Promise.all([
+            fetch('https://jsonplaceholder.typicode.com/users').then(r => r.json()),
+            fetch('https://jsonplaceholder.typicode.com/posts').then(r => r.json()),
+            fetch('https://jsonplaceholder.typicode.com/todos').then(r => r.json()),
+        ])
+
+        console.log('users:', users.length)    // 10
+        console.log('posts:', posts.length)    // 100
+        console.log('todos:', todos.length)    // 200
+
+        return { users, posts, todos }
+    } catch (error) {
+        console.error('one of the requests failed:', error)
+    }
+}
+
+fetchMultiple()
+
+
+// --- loading state pattern ---
+// always show user something is happening
+
+async function fetchWithLoading(url) {
+    console.log('loading...')
+
+    try {
+        const response = await fetch(url)
+
+        if (!response.ok) {
+            throw new Error(`error: ${response.status}`)
+        }
+
+        const data = await response.json()
+        console.log('done! data:', data)
+        return data
+    } catch (error) {
+        console.log('failed:', error.message)
+    } finally {
+        console.log('loading complete')   // always runs
+    }
+}
+
+fetchWithLoading('https://jsonplaceholder.typicode.com/users/1')
+
+
+// --- practical example ---
+// fetch github user and display info
+
+async function showGithubProfile(username) {
+    console.log(`fetching profile for ${username}...`)
+
+    try {
+        const [userRes, reposRes] = await Promise.all([
+            fetch(`https://api.github.com/users/${username}`),
+            fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=5`)
+        ])
+
+        const user = await userRes.json()
+        const repos = await reposRes.json()
+
+        console.log('=== github profile ===')
+        console.log('name:', user.name || username)
+        console.log('bio:', user.bio || 'no bio')
+        console.log('location:', user.location || 'not set')
+        console.log('public repos:', user.public_repos)
+        console.log('followers:', user.followers)
+        console.log('following:', user.following)
+        console.log('\n=== recent repos ===')
+
+        repos.forEach(repo => {
+            console.log(`- ${repo.name} (⭐ ${repo.stargazers_count})`)
+        })
+
+    } catch (error) {
+        console.error('failed to fetch profile:', error)
+    }
+}
+
+showGithubProfile('kiranmv002')
