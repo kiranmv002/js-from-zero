@@ -183,7 +183,11 @@ files → `02-dom/fetch-api.js` `02-dom/fetch-api.html`
 - fetch with async await — cleaner syntax
 - fetch multiple items from an api
 - GET POST PUT DELETE requests
-
+- fetch with auth headers
+- Promise.all — parallel fetch multiple apis
+- loading state pattern with finally
+- practical example — fetch github profile and repos
+- test html with live github user search
 
 ---
 
