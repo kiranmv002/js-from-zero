@@ -176,6 +176,15 @@ files → `03-projects/calculator/index.html` `03-projects/calculator/calculator
 - floating point precision handled
 - max 10 digit display limit
 
+### ✅ day 14 — fetch and apis
+files → `02-dom/fetch-api.js` `02-dom/fetch-api.html`
+
+- basic fetch with .then() chaining
+- fetch with async await — cleaner syntax
+- fetch multiple items from an api
+- GET POST PUT DELETE requests
+
+
 ---
 
 ## 📊 progress
