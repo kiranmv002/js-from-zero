@@ -208,7 +208,7 @@ files → `02-dom/fetch-api.js` `02-dom/fetch-api.html`
 | day 11 | local storage                    | ✅ done |
 | day 12 | es6 features                     | ✅ done |
 | day 13 | mini project — calculator        | ✅ done |
-
+| day 14 | fetch and apis                   | ✅ done |
 ---
 
-day 13 done. es6 makes javascript so much cleaner 💪
+day 14 done. fetch is how javascript talks to the internet 💪
