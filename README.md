@@ -224,6 +224,7 @@ file → `01-basics/async.js`
 | day 12 | es6 features                     | ✅ done |
 | day 13 | mini project — calculator        | ✅ done |
 | day 14 | fetch and apis                   | ✅ done |
+| day 15 | promises and async await         | ✅ done |
 ---
 
-day 14 done. fetch is how javascript talks to the internet 💪
+day 15 done. async await makes asynchronous code look synchronous 💪
