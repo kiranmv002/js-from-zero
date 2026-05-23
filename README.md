@@ -189,6 +189,15 @@ files → `02-dom/fetch-api.js` `02-dom/fetch-api.html`
 - practical example — fetch github profile and repos
 - test html with live github user search
 
+### ✅ day 15 — promises and async await
+file → `01-basics/async.js`
+
+- what is a promise — pending fulfilled rejected
+- creating promises with resolve and reject
+- chaining .then() and .catch()
+- async await — cleaner syntax for promises
+- try catch with async await
+
 ---
 
 ## 📊 progress
