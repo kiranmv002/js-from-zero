@@ -151,3 +151,142 @@ async function getTodo() {
 
 getTodo()
 
+
+// --- Promise.all ---
+// run multiple promises at the same time
+// waits for all to finish
+
+async function getMultiple() {
+    try {
+        const [post, user, todo] = await Promise.all([
+            fetch('https://jsonplaceholder.typicode.com/posts/1').then(r => r.json()),
+            fetch('https://jsonplaceholder.typicode.com/users/1').then(r => r.json()),
+            fetch('https://jsonplaceholder.typicode.com/todos/1').then(r => r.json()),
+        ])
+
+        console.log('post:', post.title)
+        console.log('user:', user.name)
+        console.log('todo:', todo.title)
+    } catch (error) {
+        console.error('one failed:', error)
+    }
+}
+
+getMultiple()
+
+
+// --- Promise.allSettled ---
+// like Promise.all but doesnt stop on failure
+// returns result of each promise
+
+async function getAllSettled() {
+    const results = await Promise.allSettled([
+        fetch('https://jsonplaceholder.typicode.com/posts/1').then(r => r.json()),
+        fetch('https://invalid-url-that-fails.xyz').then(r => r.json()),
+        fetch('https://jsonplaceholder.typicode.com/users/1').then(r => r.json()),
+    ])
+
+    results.forEach((result, index) => {
+        if (result.status === 'fulfilled') {
+            console.log(`request ${index + 1} succeeded`)
+        } else {
+            console.log(`request ${index + 1} failed:`, result.reason.message)
+        }
+    })
+}
+
+getAllSettled()
+
+
+// --- Promise.race ---
+// resolves with whichever promise finishes first
+
+async function withTimeout(promise, ms) {
+    const timeout = new Promise((_, reject) =>
+        setTimeout(() => reject(new Error('request timed out')), ms)
+    )
+    return Promise.race([promise, timeout])
+}
+
+async function fetchWithTimeout() {
+    try {
+        const data = await withTimeout(
+            fetch('https://jsonplaceholder.typicode.com/posts/1').then(r => r.json()),
+            5000   // 5 second timeout
+        )
+        console.log('got data before timeout:', data.title)
+    } catch (error) {
+        console.log(error.message)
+    }
+}
+
+fetchWithTimeout()
+
+
+// --- Promise.any ---
+// resolves with first successful promise
+// only rejects if ALL fail
+
+async function tryMultipleSources() {
+    try {
+        const data = await Promise.any([
+            fetch('https://invalid1.xyz').then(r => r.json()),
+            fetch('https://jsonplaceholder.typicode.com/posts/1').then(r => r.json()),
+            fetch('https://invalid2.xyz').then(r => r.json()),
+        ])
+        console.log('first success:', data.title)
+    } catch {
+        console.log('all failed')
+    }
+}
+
+tryMultipleSources()
+
+
+// --- practical example ---
+// simulate loading user dashboard data step by step
+
+function simulateDelay(ms, data) {
+    return new Promise(resolve => setTimeout(() => resolve(data), ms))
+}
+
+async function loadDashboard(userId) {
+    console.log('loading dashboard...')
+
+    try {
+        // step 1 — get user info
+        console.log('step 1: fetching user...')
+        const user = await simulateDelay(500, {
+            id: userId,
+            name: 'Kiran',
+            role: 'student'
+        })
+        console.log('user loaded:', user.name)
+
+        // step 2 — get user stats (parallel)
+        console.log('step 2: fetching stats...')
+        const [commits, projects, streak] = await Promise.all([
+            simulateDelay(300, 200),
+            simulateDelay(400, 5),
+            simulateDelay(200, 30)
+        ])
+        console.log('stats loaded — commits:', commits, 'projects:', projects, 'streak:', streak)
+
+        // step 3 — get recent activity
+        console.log('step 3: fetching activity...')
+        const activity = await simulateDelay(400, [
+            'pushed to js-from-zero',
+            'updated kiran.codes',
+            'solved 2 DSA problems'
+        ])
+        console.log('activity loaded:', activity)
+
+        console.log('\n=== dashboard ready ===')
+        return { user, stats: { commits, projects, streak }, activity }
+
+    } catch (error) {
+        console.error('dashboard failed to load:', error)
+    }
+}
+
+loadDashboard(1)
