@@ -197,6 +197,12 @@ file → `01-basics/async.js`
 - chaining .then() and .catch()
 - async await — cleaner syntax for promises
 - try catch with async await
+- async await vs .then() comparison
+- Promise.all — run multiple in parallel
+- Promise.allSettled — get all results even if some fail
+- Promise.race — first one to finish wins
+- Promise.any — first success wins
+- practical example — load dashboard step by step
 
 ---
 
