@@ -204,6 +204,14 @@ file → `01-basics/async.js`
 - Promise.any — first success wins
 - practical example — load dashboard step by step
 
+### ✅ day 16 — mini project: weather app
+files → `03-projects/weather-app/index.html` `03-projects/weather-app/weather.js`
+
+- built a weather app using openweathermap api
+- search any city by name or press enter
+- shows temperature feels like min max
+- humidity wind speed visibility pressure
+
 ---
 
 ## 📊 progress
