@@ -148,3 +148,191 @@
             font-size: 24px;
             font-weight: 400;
         }
+
+        .feels-like {
+            font-size: 13px;
+            color: #6b7a99;
+            margin-top: 4px;
+        }
+
+        .description {
+            font-size: 15px;
+            color: #9aaac4;
+            text-transform: capitalize;
+            margin-top: 4px;
+        }
+
+        /* stats grid */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .stat-item {
+            background: #131929;
+            border: 1px solid #1e2740;
+            border-radius: 10px;
+            padding: 14px 16px;
+        }
+
+        .stat-label {
+            font-size: 11px;
+            color: #6b7a99;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 6px;
+        }
+
+        .stat-value {
+            font-size: 18px;
+            font-weight: 500;
+            color: #e8edf5;
+        }
+
+        .stat-unit {
+            font-size: 12px;
+            color: #6b7a99;
+            margin-left: 2px;
+        }
+
+        /* min max row */
+        .min-max {
+            display: flex;
+            gap: 10px;
+        }
+
+        .min-max-item {
+            flex: 1;
+            background: #131929;
+            border: 1px solid #1e2740;
+            border-radius: 10px;
+            padding: 12px 16px;
+            text-align: center;
+        }
+
+        .min-max-label {
+            font-size: 11px;
+            color: #6b7a99;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+
+        .min-max-value {
+            font-size: 20px;
+            font-weight: 500;
+        }
+
+        .min-max-value.min { color: #64b5f6; }
+        .min-max-value.max { color: #ff6b6b; }
+
+        /* recent searches */
+        .recent {
+            margin-top: 20px;
+        }
+
+        .recent-label {
+            font-size: 11px;
+            color: #6b7a99;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .recent-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .chip {
+            padding: 5px 14px;
+            background: #131929;
+            border: 1px solid #1e2740;
+            border-radius: 20px;
+            font-size: 13px;
+            color: #9aaac4;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .chip:hover {
+            border-color: #00c9a7;
+            color: #00c9a7;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="app">
+        <h1>weather <span>app</span></h1>
+        <p class="subtitle">search any city to get current weather</p>
+
+        <div class="search-area">
+            <input type="text" id="cityInput" placeholder="enter city name..." />
+            <button class="search-btn" id="searchBtn">search</button>
+        </div>
+
+        <div class="status" id="status"></div>
+
+        <div class="weather-card" id="weatherCard">
+            <div class="city-row">
+                <div>
+                    <div class="city-name" id="cityName"></div>
+                    <div class="country" id="country"></div>
+                </div>
+                <div class="date-time" id="dateTime"></div>
+            </div>
+
+            <div class="main-weather">
+                <div class="weather-icon" id="weatherIcon"></div>
+                <div>
+                    <div class="temp" id="temp"></div>
+                    <div class="description" id="description"></div>
+                    <div class="feels-like" id="feelsLike"></div>
+                </div>
+            </div>
+
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-label">humidity</div>
+                    <div class="stat-value" id="humidity"></div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">wind speed</div>
+                    <div class="stat-value" id="wind"></div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">visibility</div>
+                    <div class="stat-value" id="visibility"></div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">pressure</div>
+                    <div class="stat-value" id="pressure"></div>
+                </div>
+            </div>
+
+            <div class="min-max">
+                <div class="min-max-item">
+                    <div class="min-max-label">min</div>
+                    <div class="min-max-value min" id="tempMin"></div>
+                </div>
+                <div class="min-max-item">
+                    <div class="min-max-label">max</div>
+                    <div class="min-max-value max" id="tempMax"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="recent" id="recentSection" style="display:none;">
+            <div class="recent-label">recent searches</div>
+            <div class="recent-chips" id="recentChips"></div>
+        </div>
+    </div>
+
+    <script src="weather.js"></script>
+
+</body>
+</html>
