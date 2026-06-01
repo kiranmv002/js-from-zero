@@ -140,3 +140,113 @@ console.log(MathHelper.divide(10, 0))     // cannot divide by zero
 console.log(MathHelper.isEven(4))         // true
 console.log(MathHelper.clamp(150, 0, 100))  // 100
 
+
+// --- inheritance ---
+// extend a class to create a more specific version
+
+class Animal {
+    constructor(name, sound) {
+        this.name = name
+        this.sound = sound
+    }
+
+    speak() {
+        return `${this.name} says ${this.sound}`
+    }
+
+    toString() {
+        return `Animal: ${this.name}`
+    }
+}
+
+class Dog extends Animal {
+    constructor(name, breed) {
+        super(name, 'woof')   // call parent constructor
+        this.breed = breed
+    }
+
+    fetch() {
+        return `${this.name} fetches the ball!`
+    }
+
+    // override parent method
+    speak() {
+        return `${this.name} barks loudly: WOOF WOOF!`
+    }
+}
+
+class Cat extends Animal {
+    constructor(name) {
+        super(name, 'meow')
+        this.indoor = true
+    }
+
+    purr() {
+        return `${this.name} purrs...`
+    }
+}
+
+const dog = new Dog('Bruno', 'labrador')
+const cat = new Cat('Whiskers')
+
+console.log(dog.speak())    // Bruno barks loudly: WOOF WOOF!
+console.log(dog.fetch())    // Bruno fetches the ball!
+console.log(cat.speak())    // Whiskers says meow
+console.log(cat.purr())     // Whiskers purrs...
+
+console.log(dog instanceof Dog)     // true
+console.log(dog instanceof Animal)  // true
+console.log(cat instanceof Dog)     // false
+
+
+// --- private fields ---
+// truly private — cannot be accessed outside class
+// uses # prefix
+
+class SecureAccount {
+    #password
+    #balance
+
+    constructor(owner, password, balance) {
+        this.owner = owner
+        this.#password = password
+        this.#balance = balance
+    }
+
+    authenticate(password) {
+        return password === this.#password
+    }
+
+    getBalance(password) {
+        if (!this.authenticate(password)) {
+            return 'wrong password'
+        }
+        return `balance: ₹${this.#balance}`
+    }
+
+    transfer(amount, password) {
+        if (!this.authenticate(password)) return 'wrong password'
+        if (amount > this.#balance) return 'insufficient funds'
+        this.#balance -= amount
+        return `transferred ₹${amount}`
+    }
+}
+
+const secure = new SecureAccount('Kiran', 'secret123', 5000)
+console.log(secure.getBalance('wrongpass'))     // wrong password
+console.log(secure.getBalance('secret123'))     // balance: ₹5000
+console.log(secure.transfer(1000, 'secret123')) // transferred ₹1000
+// console.log(secure.#balance)   // error — private field
+
+
+// --- practical example ---
+// simple todo manager using classes
+
+class Todo {
+    constructor(text, priority = 'medium') {
+        this.id = Date.now()
+        this.text = text
+        this.priority = priority
+        this.done = false
+        this.createdAt = new Date().toLocaleDateString()
+    }
