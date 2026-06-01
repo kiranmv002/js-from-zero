@@ -217,6 +217,15 @@ files → `03-projects/weather-app/index.html` `03-projects/weather-app/weather.
 - loads hyderabad weather on startup
 - error handling for invalid city and api key
 
+### ✅ day 17 — classes and oop
+file → `01-basics/classes.js`
+
+- basic class with constructor and methods
+- creating instances with new keyword
+- getters and setters with validation
+- static methods — belong to class not instance
+
+
 ---
 
 ## 📊 progress
