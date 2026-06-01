@@ -238,6 +238,7 @@ files → `03-projects/weather-app/index.html` `03-projects/weather-app/weather.
 | day 13 | mini project — calculator        | ✅ done |
 | day 14 | fetch and apis                   | ✅ done |
 | day 15 | promises and async await         | ✅ done |
+| day 16 | mini project — weather app       | ✅ done |
 ---
 
-day 15 done. async await makes asynchronous code look synchronous 💪
+day 16 done. third real project — fetching live data from an api 🔥
