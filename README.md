@@ -211,6 +211,11 @@ files → `03-projects/weather-app/index.html` `03-projects/weather-app/weather.
 - search any city by name or press enter
 - shows temperature feels like min max
 - humidity wind speed visibility pressure
+- weather icon changes based on condition code
+- recent searches saved in localStorage
+- click recent chip to search again
+- loads hyderabad weather on startup
+- error handling for invalid city and api key
 
 ---
 
