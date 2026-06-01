@@ -250,3 +250,84 @@ class Todo {
         this.done = false
         this.createdAt = new Date().toLocaleDateString()
     }
+
+    complete() {
+        this.done = true
+        return `"${this.text}" marked as done`
+    }
+
+    toString() {
+        const status = this.done ? '✓' : '○'
+        return `[${status}] ${this.text} (${this.priority})`
+    }
+}
+
+class TodoManager {
+    constructor() {
+        this.todos = []
+    }
+
+    add(text, priority) {
+        const todo = new Todo(text, priority)
+        this.todos.push(todo)
+        console.log(`added: "${text}"`)
+        return todo
+    }
+
+    complete(id) {
+        const todo = this.todos.find(t => t.id === id)
+        if (todo) {
+            return todo.complete()
+        }
+        return 'todo not found'
+    }
+
+    delete(id) {
+        const index = this.todos.findIndex(t => t.id === id)
+        if (index !== -1) {
+            const removed = this.todos.splice(index, 1)[0]
+            return `deleted: "${removed.text}"`
+        }
+        return 'todo not found'
+    }
+
+    getByPriority(priority) {
+        return this.todos.filter(t => t.priority === priority)
+    }
+
+    get stats() {
+        const total = this.todos.length
+        const done = this.todos.filter(t => t.done).length
+        return { total, done, active: total - done }
+    }
+
+    list() {
+        if (this.todos.length === 0) {
+            console.log('no todos yet')
+            return
+        }
+        console.log('\n=== todos ===')
+        this.todos.forEach(t => console.log(t.toString()))
+        const s = this.stats
+        console.log(`\n${s.active} active | ${s.done} done | ${s.total} total`)
+    }
+}
+
+const manager = new TodoManager()
+
+const t1 = manager.add('learn classes in js', 'high')
+const t2 = manager.add('build weather app', 'high')
+const t3 = manager.add('push to github', 'medium')
+const t4 = manager.add('update readme', 'low')
+
+manager.complete(t1.id)
+manager.complete(t2.id)
+
+manager.list()
+
+console.log('\nhigh priority todos:')
+manager.getByPriority('high').forEach(t => console.log(t.toString()))
+
+manager.delete(t4.id)
+console.log('\nafter deleting last todo:')
+manager.list()
