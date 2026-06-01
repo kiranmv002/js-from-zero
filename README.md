@@ -224,7 +224,11 @@ file → `01-basics/classes.js`
 - creating instances with new keyword
 - getters and setters with validation
 - static methods — belong to class not instance
-
+- inheritance with extends and super
+- method overriding in child class
+- instanceof operator
+- private fields with # prefix
+- practical example — todo manager with classes
 
 ---
 
