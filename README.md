@@ -252,6 +252,8 @@ file → `01-basics/classes.js`
 | day 14 | fetch and apis                   | ✅ done |
 | day 15 | promises and async await         | ✅ done |
 | day 16 | mini project — weather app       | ✅ done |
+| day 17 | classes and oop                  | ✅ done |
+
 ---
 
 day 16 done. third real project — fetching live data from an api 🔥
