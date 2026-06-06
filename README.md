@@ -256,4 +256,4 @@ file → `01-basics/classes.js`
 
 ---
 
-day 16 done. third real project — fetching live data from an api 🔥
+day 17 done. classes make code clean and reusable 💪
