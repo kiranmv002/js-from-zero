@@ -281,3 +281,56 @@ function showNextBtn() {
     nextBtn.className = 'next-btn show'
     nextBtn.textContent = quiz.isLastQuestion ? 'see results 🎯' : 'next question →'
 }
+
+
+// --- next question ---
+document.getElementById('nextBtn').addEventListener('click', () => {
+    if (quiz.isLastQuestion) {
+        showResults()
+    } else {
+        quiz.next()
+        renderQuestion()
+    }
+})
+
+
+// --- show results ---
+function showResults() {
+    document.getElementById('quizArea').style.display = 'none'
+    const results = document.getElementById('results')
+    results.className = 'results show'
+
+    const percent = (quiz.correctCount / quiz.questions.length) * 100
+
+    let icon, title, subtitle
+
+    if (percent === 100) {
+        icon = '🏆'; title = 'perfect score!'; subtitle = 'you know your javascript!'
+    } else if (percent >= 80) {
+        icon = '🔥'; title = 'excellent!'; subtitle = 'you really know javascript well'
+    } else if (percent >= 60) {
+        icon = '👍'; title = 'good job!'; subtitle = 'keep practicing to get better'
+    } else if (percent >= 40) {
+        icon = '📚'; title = 'keep learning!'; subtitle = 'review the topics and try again'
+    } else {
+        icon = '💪'; title = 'keep going!'; subtitle = 'practice makes perfect'
+    }
+
+    document.getElementById('resultIcon').textContent = icon
+    document.getElementById('resultTitle').textContent = title
+    document.getElementById('resultSubtitle').textContent = subtitle
+    document.getElementById('resultScore').innerHTML =
+        `${quiz.correctCount}<span>/${quiz.questions.length}</span>`
+    document.getElementById('statCorrect').textContent = quiz.correctCount
+    document.getElementById('statWrong').textContent = quiz.wrongCount
+    document.getElementById('statTime').textContent = quiz.avgTime + 's'
+}
+
+
+// --- restart ---
+function restartQuiz() {
+    quiz = new Quiz(questions)
+    document.getElementById('results').className = 'results'
+    document.getElementById('quizArea').style.display = 'block'
+    renderQuestion()
+}
