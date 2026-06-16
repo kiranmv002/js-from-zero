@@ -326,3 +326,73 @@
     </style>
 </head>
 <body>
+
+    <div class="app">
+
+        <!-- quiz area -->
+        <div class="quiz-area" id="quizArea">
+
+            <div class="header">
+                <h1>js <span>quiz</span></h1>
+                <div class="score-badge">score: <span id="scoreDisplay">0</span></div>
+            </div>
+
+            <div class="progress-wrap">
+                <div class="progress-info">
+                    <span id="questionNum">question 1 of 10</span>
+                    <span id="correctCount">0 correct</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill" style="width:0%"></div>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="category-tag" id="category"></div>
+                <div class="question-text" id="questionText"></div>
+                <div class="timer">
+                    <div class="timer-bar">
+                        <div class="timer-fill" id="timerFill"></div>
+                    </div>
+                    <div class="timer-text" id="timerText">15</div>
+                </div>
+            </div>
+
+            <div class="options" id="options"></div>
+
+            <div class="feedback" id="feedback"></div>
+
+            <button class="next-btn" id="nextBtn">next question →</button>
+
+        </div>
+
+        <!-- results -->
+        <div class="results" id="results">
+            <div class="result-icon" id="resultIcon"></div>
+            <div class="result-title" id="resultTitle"></div>
+            <div class="result-subtitle" id="resultSubtitle"></div>
+            <div class="result-score" id="resultScore"></div>
+            <div class="result-label">out of 10 questions</div>
+            <div class="result-stats">
+                <div class="result-stat">
+                    <div class="result-stat-val" id="statCorrect"></div>
+                    <div class="result-stat-label">correct</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-val" id="statWrong"></div>
+                    <div class="result-stat-label">wrong</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-val" id="statTime"></div>
+                    <div class="result-stat-label">avg time</div>
+                </div>
+            </div>
+            <button class="restart-btn" onclick="restartQuiz()">play again 🔄</button>
+        </div>
+
+    </div>
+
+    <script src="quiz.js"></script>
+
+</body>
+</html>
