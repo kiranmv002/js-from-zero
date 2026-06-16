@@ -264,3 +264,20 @@ function selectAnswer(index) {
 
     showNextBtn()
 }
+
+function disableOptions() {
+    document.querySelectorAll('.option').forEach(opt => {
+        opt.disabled = true
+    })
+}
+
+function showCorrectAnswer() {
+    const options = document.querySelectorAll('.option')
+    options[quiz.currentQuestion.correct].classList.add('correct')
+}
+
+function showNextBtn() {
+    const nextBtn = document.getElementById('nextBtn')
+    nextBtn.className = 'next-btn show'
+    nextBtn.textContent = quiz.isLastQuestion ? 'see results 🎯' : 'next question →'
+}
