@@ -162,3 +162,105 @@ class Quiz {
 }
 
 
+// --- quiz instance ---
+let quiz = new Quiz(questions)
+
+const letters = ['A', 'B', 'C', 'D']
+
+
+// --- render question ---
+function renderQuestion() {
+    const q = quiz.currentQuestion
+
+    document.getElementById('questionNum').textContent =
+        `question ${quiz.currentIndex + 1} of ${quiz.questions.length}`
+    document.getElementById('correctCount').textContent =
+        `${quiz.correctCount} correct`
+    document.getElementById('scoreDisplay').textContent = quiz.score
+    document.getElementById('progressFill').style.width = quiz.progress + '%'
+    document.getElementById('category').textContent = q.category
+    document.getElementById('questionText').textContent = q.question
+    document.getElementById('feedback').className = 'feedback'
+    document.getElementById('nextBtn').className = 'next-btn'
+
+    const optionsEl = document.getElementById('options')
+    optionsEl.innerHTML = q.options.map((opt, i) => `
+        <button class="option" onclick="selectAnswer(${i})">
+            <div class="option-letter">${letters[i]}</div>
+            <span>${opt}</span>
+        </button>
+    `).join('')
+
+    startTimer()
+}
+
+
+// --- timer ---
+function startTimer() {
+    quiz.timeLeft = 15
+    updateTimerDisplay()
+
+    quiz.timer = setInterval(() => {
+        quiz.timeLeft--
+        updateTimerDisplay()
+
+        if (quiz.timeLeft <= 0) {
+            clearInterval(quiz.timer)
+            timeUp()
+        }
+    }, 1000)
+}
+
+function updateTimerDisplay() {
+    const fill = document.getElementById('timerFill')
+    const text = document.getElementById('timerText')
+    const percent = (quiz.timeLeft / 15) * 100
+
+    fill.style.width = percent + '%'
+    text.textContent = quiz.timeLeft
+
+    fill.className = 'timer-fill'
+    if (quiz.timeLeft <= 5) fill.classList.add('danger')
+    else if (quiz.timeLeft <= 8) fill.classList.add('warning')
+}
+
+function timeUp() {
+    quiz.answered = true
+    disableOptions()
+    showCorrectAnswer()
+
+    const feedback = document.getElementById('feedback')
+    feedback.textContent = `⏰ time up! the answer was: ${quiz.currentQuestion.options[quiz.currentQuestion.correct]}`
+    feedback.className = 'feedback wrong'
+
+    quiz.wrongCount++
+    showNextBtn()
+}
+
+
+// --- select answer ---
+function selectAnswer(index) {
+    if (quiz.answered) return
+
+    const isCorrect = quiz.answer(index)
+    const options = document.querySelectorAll('.option')
+    const feedback = document.getElementById('feedback')
+
+    disableOptions()
+    showCorrectAnswer()
+
+    options[index].classList.add(isCorrect ? 'correct' : 'wrong')
+
+    document.getElementById('scoreDisplay').textContent = quiz.score
+    document.getElementById('correctCount').textContent = `${quiz.correctCount} correct`
+
+    if (isCorrect) {
+        feedback.textContent = '✅ correct! well done.'
+        feedback.className = 'feedback correct'
+    } else {
+        feedback.textContent = `❌ wrong. correct answer: ${quiz.currentQuestion.options[quiz.currentQuestion.correct]}`
+        feedback.className = 'feedback wrong'
+    }
+
+    showNextBtn()
+}
