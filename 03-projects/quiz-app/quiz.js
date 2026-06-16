@@ -92,3 +92,73 @@ const questions = [
 ]
 
 
+// --- quiz class ---
+class Quiz {
+    constructor(questions) {
+        this.questions = this.shuffle([...questions])
+        this.currentIndex = 0
+        this.score = 0
+        this.correctCount = 0
+        this.wrongCount = 0
+        this.answered = false
+        this.timer = null
+        this.timeLeft = 15
+        this.totalTime = 0
+        this.startTime = null
+    }
+
+    get currentQuestion() {
+        return this.questions[this.currentIndex]
+    }
+
+    get isLastQuestion() {
+        return this.currentIndex === this.questions.length - 1
+    }
+
+    get progress() {
+        return ((this.currentIndex) / this.questions.length) * 100
+    }
+
+    shuffle(arr) {
+        for (let i = arr.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [arr[i], arr[j]] = [arr[j], arr[i]]
+        }
+        return arr
+    }
+
+    answer(index) {
+        if (this.answered) return false
+        this.answered = true
+
+        const timeTaken = 15 - this.timeLeft
+        this.totalTime += timeTaken
+
+        clearInterval(this.timer)
+
+        const isCorrect = index === this.currentQuestion.correct
+
+        if (isCorrect) {
+            this.score += Math.max(10, 20 - timeTaken)
+            this.correctCount++
+        } else {
+            this.wrongCount++
+        }
+
+        return isCorrect
+    }
+
+    next() {
+        if (this.isLastQuestion) return false
+        this.currentIndex++
+        this.answered = false
+        this.timeLeft = 15
+        return true
+    }
+
+    get avgTime() {
+        return Math.round(this.totalTime / this.questions.length)
+    }
+}
+
+
