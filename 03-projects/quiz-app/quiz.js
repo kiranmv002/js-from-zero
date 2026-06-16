@@ -334,3 +334,20 @@ function restartQuiz() {
     document.getElementById('quizArea').style.display = 'block'
     renderQuestion()
 }
+
+
+// --- keyboard support ---
+document.addEventListener('keydown', (e) => {
+    if (e.key === '1' || e.key === 'a') selectAnswer(0)
+    else if (e.key === '2' || e.key === 'b') selectAnswer(1)
+    else if (e.key === '3' || e.key === 'c') selectAnswer(2)
+    else if (e.key === '4' || e.key === 'd') selectAnswer(3)
+    else if (e.key === 'Enter' || e.key === ' ') {
+        const nextBtn = document.getElementById('nextBtn')
+        if (nextBtn.classList.contains('show')) nextBtn.click()
+    }
+})
+
+
+// --- start ---
+renderQuestion()
