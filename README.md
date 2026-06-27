@@ -230,6 +230,13 @@ file → `01-basics/classes.js`
 - private fields with # prefix
 - practical example — todo manager with classes
 
+### ✅ day 18 — mini project: quiz app
+files → `03-projects/quiz-app/index.html` `03-projects/quiz-app/quiz.js`
+
+- 10 javascript questions covering all topics learned
+- questions shuffled randomly on each play
+
+
 ---
 
 ## 📊 progress
