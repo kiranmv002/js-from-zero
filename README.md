@@ -235,7 +235,10 @@ files → `03-projects/quiz-app/index.html` `03-projects/quiz-app/quiz.js`
 
 - 10 javascript questions covering all topics learned
 - questions shuffled randomly on each play
-
+- 15 second countdown timer per question
+- timer bar changes yellow at 8s red at 5s
+- score system with time bonus for fast answers
+- correct answer shown after answering
 
 ---
 
