@@ -239,6 +239,12 @@ files → `03-projects/quiz-app/index.html` `03-projects/quiz-app/quiz.js`
 - timer bar changes yellow at 8s red at 5s
 - score system with time bonus for fast answers
 - correct answer shown after answering
+- feedback message for correct and wrong
+- results screen with score correct wrong avg time
+- different result message based on performance
+- play again reshuffles all questions
+- keyboard support — 1 2 3 4 or a b c d to answer
+- enter or space for next question
 
 ---
 
