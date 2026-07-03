@@ -49,3 +49,19 @@ export function isNumber(value) {
 export function inRange(value, min, max) {
     return value >= min && value <= max
 }
+
+// default export — validate a form object
+export default function validateForm(fields) {
+    const errors = {}
+
+    Object.entries(fields).forEach(([key, value]) => {
+        if (isEmpty(value)) {
+            errors[key] = `${key} is required`
+        }
+    })
+
+    return {
+        isValid: Object.keys(errors).length === 0,
+        errors
+    }
+}
