@@ -33,3 +33,19 @@ export function isStrongPassword(password) {
             /[0-9]/.test(password)
     }
 }
+
+export function isEmpty(value) {
+    if (value === null || value === undefined) return true
+    if (typeof value === 'string') return value.trim() === ''
+    if (Array.isArray(value)) return value.length === 0
+    if (typeof value === 'object') return Object.keys(value).length === 0
+    return false
+}
+
+export function isNumber(value) {
+    return !isNaN(parseFloat(value)) && isFinite(value)
+}
+
+export function inRange(value, min, max) {
+    return value >= min && value <= max
+}
