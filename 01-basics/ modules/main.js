@@ -28,3 +28,22 @@ console.log('\n=== math namespace ===')
 console.log(MathUtils.power(2, 8))    // 256
 console.log(MathUtils.clamp(150, 0, 100))  // 100
 
+
+// --- default + named imports ---
+import formatName, {
+    capitalize,
+    truncate,
+    isPalindrome,
+    slugify,
+    countWords
+} from './string-utils.js'
+
+console.log('\n=== string utils ===')
+console.log(formatName('kiran', 'mv'))             // Kiran Mv
+console.log(capitalize('hello world'))             // Hello world
+console.log(truncate('this is a very long text that needs truncating', 20))
+console.log(isPalindrome('racecar'))               // true
+console.log(isPalindrome('hello'))                 // false
+console.log(slugify('Hello World JS!'))            // hello-world-js
+console.log(countWords('learn javascript every day'))  // 4
+
