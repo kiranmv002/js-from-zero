@@ -102,3 +102,35 @@ console.log('\nform validation:')
 console.log(formResult)
 // { isValid: false, errors: { email: 'email is required' } }
 
+
+// --- practical example ---
+// combine all utils to process student data
+
+console.log('\n=== practical example ===')
+
+const rawStudents = [
+    { name: 'kiran mv', marks: 90, subject: 'javascript' },
+    { name: 'ravi kumar', marks: 75, subject: 'python' },
+    { name: 'arjun reddy', marks: 85, subject: 'javascript' },
+    { name: 'priya singh', marks: 92, subject: 'python' },
+    { name: 'rahul dev', marks: 68, subject: 'javascript' },
+]
+
+// format names using string utils
+const formatted = rawStudents.map(s => ({
+    ...s,
+    name: formatName(...s.name.split(' ')),
+    grade: s.marks >= 90 ? 'A+' : s.marks >= 80 ? 'A' : s.marks >= 70 ? 'B' : 'C'
+}))
+
+// group by subject using array utils
+const bySubject = groupBy(formatted, 'subject')
+console.log('by subject:', bySubject)
+
+// get top student using math utils
+const topMarks = max(formatted.map(s => s.marks))
+const topper = formatted.find(s => s.marks === topMarks)
+console.log('topper:', topper.name, 'with', topMarks, 'marks')
+
+// average marks
+console.log('class average:', average(...formatted.map(s => s.marks)).toFixed(2))
