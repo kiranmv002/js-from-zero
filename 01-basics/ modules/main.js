@@ -47,3 +47,58 @@ console.log(isPalindrome('hello'))                 // false
 console.log(slugify('Hello World JS!'))            // hello-world-js
 console.log(countWords('learn javascript every day'))  // 4
 
+
+// --- array utils ---
+import ArrayUtils, { unique, chunk, groupBy, sortBy, range } from './array-utils.js'
+
+console.log('\n=== array utils ===')
+console.log(unique([1, 2, 2, 3, 3, 3, 4]))        // [1,2,3,4]
+console.log(chunk([1,2,3,4,5,6,7,8], 3))           // [[1,2,3],[4,5,6],[7,8]]
+console.log(range(0, 10, 2))                        // [0,2,4,6,8]
+console.log(ArrayUtils.sum([10, 20, 30, 40, 50]))  // 150
+console.log(ArrayUtils.shuffle([1,2,3,4,5]))        // random order
+
+const students = [
+    { name: 'Kiran', grade: 'A', marks: 90 },
+    { name: 'Ravi', grade: 'B', marks: 75 },
+    { name: 'Arjun', grade: 'A', marks: 85 },
+    { name: 'Priya', grade: 'B', marks: 80 },
+]
+
+console.log('\ngrouped by grade:')
+console.log(groupBy(students, 'grade'))
+
+console.log('\nsorted by marks:')
+console.log(sortBy(students, 'marks', 'desc'))
+
+
+// --- validator ---
+import validateForm, {
+    isEmail,
+    isStrongPassword,
+    isEmpty,
+    isURL
+} from './validator.js'
+
+console.log('\n=== validator ===')
+console.log(isEmail('kiran@gmail.com'))       // true
+console.log(isEmail('not-an-email'))          // false
+console.log(isURL('https://github.com'))      // true
+console.log(isURL('not a url'))               // false
+console.log(isEmpty(''))                       // true
+console.log(isEmpty('hello'))                  // false
+
+const passwordCheck = isStrongPassword('Kiran@123')
+console.log('\npassword check:')
+console.log(passwordCheck)
+
+// validate a form
+const formResult = validateForm({
+    name: 'Kiran',
+    email: '',
+    message: 'hello'
+})
+console.log('\nform validation:')
+console.log(formResult)
+// { isValid: false, errors: { email: 'email is required' } }
+
