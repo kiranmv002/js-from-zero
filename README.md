@@ -291,4 +291,4 @@ files → `01-basics/modules/`
 | day 19 | modules and import export        | ✅ done |
 ---
 
-day 17 done. classes make code clean and reusable 💪
+day 19 done. modules make code organized and reusable across files 💪
