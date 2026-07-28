@@ -288,7 +288,7 @@ files → `01-basics/modules/`
 | day 16 | mini project — weather app       | ✅ done |
 | day 17 | classes and oop                  | ✅ done |
 | day 18 | mini project — quiz app          | ✅ done |
-
+| day 19 | modules and import export        | ✅ done |
 ---
 
 day 17 done. classes make code clean and reusable 💪
