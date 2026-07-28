@@ -256,6 +256,13 @@ files → `01-basics/modules/`
 - import with alias — rename on import
 - import everything as namespace with *
 - default + named imports together
+- math-utils.js — add subtract multiply divide power clamp average
+- string-utils.js — capitalize truncate isPalindrome slugify countWords
+- array-utils.js — unique chunk groupBy sortBy range shuffle
+- validator.js — isEmail isURL isStrongPassword isEmpty validateForm
+- main.js — imports and uses all modules together
+- modules need type="module" in script tag
+- modules only work with a server not direct file open
 
 ---
 
