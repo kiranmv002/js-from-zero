@@ -246,6 +246,17 @@ files → `03-projects/quiz-app/index.html` `03-projects/quiz-app/quiz.js`
 - keyboard support — 1 2 3 4 or a b c d to answer
 - enter or space for next question
 
+
+### ✅ day 19 — modules and import export
+files → `01-basics/modules/`
+
+- named exports — export multiple things from one file
+- default export — main export of a module
+- named imports — import specific things
+- import with alias — rename on import
+- import everything as namespace with *
+- default + named imports together
+
 ---
 
 ## 📊 progress
