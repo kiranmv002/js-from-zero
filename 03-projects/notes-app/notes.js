@@ -47,3 +47,66 @@ class Note {
     }
 }
 
+
+// --- NotesApp class ---
+class NotesApp {
+    constructor() {
+        this.notes = this.load()
+        this.currentFilter = 'all'
+        this.searchQuery = ''
+        this.editingId = null
+        this.selectedColor = COLORS[0].value
+    }
+
+    load() {
+        const saved = localStorage.getItem('notes-app')
+        return saved ? JSON.parse(saved) : this.getDefaultNotes()
+    }
+
+    save() {
+        localStorage.setItem('notes-app', JSON.stringify(this.notes))
+    }
+
+    getDefaultNotes() {
+        return [
+            {
+                id: 1,
+                title: 'welcome to notes app!',
+                content: 'click + new note to create your first note. you can pin search filter and delete notes.',
+                category: 'personal',
+                color: '#00c9a7',
+                pinned: true,
+                createdAt: new Date(),
+                updatedAt: new Date()
+            },
+            {
+                id: 2,
+                title: 'javascript learning goals',
+                content: 'complete js-from-zero repo\nlearn React basics\nbuild more projects\npractice DSA daily',
+                category: 'learning',
+                color: '#4f8ef7',
+                pinned: false,
+                createdAt: new Date(),
+                updatedAt: new Date()
+            }
+        ]
+    }
+
+    add(title, content, category, color) {
+        const note = new Note(title, content, category, color)
+        this.notes.unshift(note)
+        this.save()
+        return note
+    }
+
+    update(id, title, content, category, color) {
+        const note = this.notes.find(n => n.id === id)
+        if (note) {
+            note.title = title || 'untitled'
+            note.content = content
+            note.category = category
+            note.color = color
+            note.updatedAt = new Date()
+            this.save()
+        }
+    }
