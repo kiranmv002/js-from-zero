@@ -110,3 +110,8 @@ class NotesApp {
             this.save()
         }
     }
+
+    delete(id) {
+        this.notes = this.notes.filter(n => n.id !== id)
+        this.save()
+    }
