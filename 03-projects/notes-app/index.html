@@ -103,3 +103,77 @@
             color: #0b0f19;
             font-weight: 600;
         }
+
+        /* notes grid */
+        .notes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 16px;
+        }
+
+        /* note card */
+        .note-card {
+            background: #0e1422;
+            border: 1px solid #1e2740;
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            transition: all 0.3s;
+            cursor: pointer;
+            position: relative;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .note-card:hover { border-color: #00c9a7; transform: translateY(-3px); }
+
+        .note-card.pinned { border-color: rgba(0,201,167,0.4); }
+
+        .note-color-bar {
+            position: absolute;
+            top: 0; left: 0;
+            width: 4px;
+            height: 100%;
+            border-radius: 12px 0 0 12px;
+        }
+
+        .note-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding-left: 10px;
+        }
+
+        .note-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: #e8edf5;
+            flex: 1;
+            word-break: break-word;
+        }
+
+        .note-actions {
+            display: flex;
+            gap: 6px;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+
+        .note-card:hover .note-actions { opacity: 1; }
+
+        .note-action-btn {
+            background: none;
+            border: none;
+            color: #6b7a99;
+            font-size: 14px;
+            cursor: pointer;
+            padding: 2px 4px;
+            border-radius: 4px;
+            transition: color 0.2s;
+        }
