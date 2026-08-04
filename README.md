@@ -264,6 +264,13 @@ files → `01-basics/modules/`
 - modules need type="module" in script tag
 - modules only work with a server not direct file open
 
+### ✅ day 20 — mini project: notes app
+files → `03-projects/notes-app/index.html` `03-projects/notes-app/notes.js`
+
+- create edit delete notes
+- 6 color options for notes
+- 4 categories — work personal learning ideas
+
 ---
 
 ## 📊 progress
