@@ -270,6 +270,8 @@ files → `03-projects/notes-app/index.html` `03-projects/notes-app/notes.js`
 - create edit delete notes
 - 6 color options for notes
 - 4 categories — work personal learning ideas
+- pin notes — pinned always show on top
+- search notes in real time
 
 ---
 
