@@ -301,4 +301,4 @@ files → `03-projects/notes-app/index.html` `03-projects/notes-app/notes.js`
 | day 20 | mini project                     | ✅ done |
 ---
 
-day 19 done. modules make code organized and reusable across files 💪
+day 20 done. modules make code organized and reusable across files 💪
