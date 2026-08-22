@@ -299,7 +299,7 @@ files → `03-projects/notes-app/index.html` `03-projects/notes-app/notes.js`
 | day 18 | mini project — quiz app          | ✅ done |
 | day 19 | modules and import export        | ✅ done |
 | day 20 | mini project                     | ✅ done |
-| day 21 |
+| day 21 | fixing project without bugs
 ---
 
 day 20 done. modules make code organized and reusable across files 💪
